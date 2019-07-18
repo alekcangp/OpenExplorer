@@ -1,0 +1,158 @@
+
+
+#pixie{position:fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+    background:url(../img/bg.jpg) no-repeat center center fixed;
+    -webkit-background-size: 100%; 
+    -moz-background-size: 100%; 
+    -o-background-size: 100%; 
+    background-size: 100%; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    }
+
+
+body {
+	width: 100wh;
+	height: 90vh;
+    color: #fff;
+	background: linear-gradient(-45deg, rgb(116, 82, 238), rgb(33, 45, 214), rgb(71, 83, 248), rgb(113, 4, 177));
+	background-size: 800% 800%;
+	-webkit-animation: Gradient 45s ease infinite;
+	-moz-animation: Gradient 45s ease infinite;
+	animation: Gradient 45s ease infinite;
+	margin: 0;
+	padding: 0;
+	font-family: 'Exo 2', sans-serif;
+}
+
+@-webkit-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@-moz-keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+	50% {
+		background-position: 100% 50%
+	}
+	100% {
+		background-position: 0% 50%
+	}
+}
+
+
+.main-menu:hover,nav.main-menu.expanded{width:200px;overflow:visible; background:rgba(0, 0, 139, 0.5);}
+.main-menu{background:rgba(0, 0, 139, 0.3); border-right:1px solid #e5e5e5;position:absolute;top:0;bottom:0;height:100%;left:0;width:60px;overflow:hidden;-webkit-transition:width .05s linear;transition:width .05s linear; -webkit-transform:translateZ(0) scale(1,1);z-index:1000}
+.no-touch .scrollable.hover{overflow-y:hidden}
+.no-touch .scrollable.hover:hover{overflow-y:auto;overflow:visible}
+nav{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}
+
+
+.tab {
+	float: left;
+	width: 100%;
+	height: 100%;
+	font-size: 20px;
+	
+  }
+  
+  /* Style the buttons inside the tab */
+  .tab button {
+	display: block;
+	background-color: inherit;
+	color: white;
+	padding: 20px 12px;
+	width: 100%;
+	border: none;
+	outline: none;
+	text-align: left;
+	cursor: pointer;
+	transition: 0.3s;
+	font-size: 25px;
+	white-space: nowrap;
+	
+  }
+  
+  /* Change background color of buttons on hover */
+  .tab button:hover {
+	background-color: rgb(78, 81, 233);
+  }
+  
+  /* Create an active/current "tab button" class */
+  .tab button.active {
+	background-color: rgb(111, 10, 194);
+  }
+  
+  /* Style the tab content */
+  .tabcontent {
+	float: left;
+	padding: 0px 12px;
+	margin-left: 60px;
+	width: calc(100% - 90px);
+	
+	height: 100%;
+  }
+
+  /*TITLE*/
+  
+  
+  @keyframes anim {
+	0%   { opacity: 0; filter: blur(28px)}
+	10%  { opacity: 0; }
+	90%  { opacity: 1; }
+	100% { opacity: 1; filter: blur(0px)}
+  }
+  .title{ 
+	animation: anim 1s 1 alternate, neon .08s ease-in-out infinite alternate;
+  }
+  
+	 
+  @keyframes neon {
+	from {
+	  text-shadow:
+	  0 0 6px rgba(202,228,225,0.92),
+	  0 0 30px rgba(202,228,225,0.34),
+	  0 0 12px rgba(30,132,242,0.52),
+	  0 0 21px rgba(30,132,242,0.92),
+	  0 0 34px rgba(30,132,242,0.78),
+	  0 0 54px rgba(30,132,242,0.92);
+	}
+	to {
+	  text-shadow:
+	  0 0 6px rgba(202,228,225,0.98),
+	  0 0 30px rgba(202,228,225,0.42),
+	  0 0 12px rgba(30,132,242,0.58),
+	  0 0 22px rgba(30,132,242,0.84),
+	  0 0 38px rgba(30,132,242,0.88),
+	  0 0 60px rgba(30,132,242,1);
+	}
+  }
+  
+
