@@ -8,31 +8,29 @@
 	
 	<meta name="apple-mobile-web-app-capable" content="yes">
 	
-
 <link rel="stylesheet" href="style.css">
-
-<style>
-.load{
-  animation: spin 5s linear 0s infinite;
-}
-@keyframes spin {
-    from {transform:rotate(0deg);}
-    to {transform:rotate(360deg);}
-}
-</style>
 
 </head>
 <body>
-		
-		<script >
+
+		<style>
+				.load{
+				  animation: spin 5s linear 0s infinite;
+				}
+				@keyframes spin {
+					from {transform:rotate(0deg);}
+					to {transform:rotate(360deg);}
+				}
+				</style>
+<script >
 		setTimeout(function(){document.getElementById('hide').style.display = 'none'}, 5500)
 		</script>
-		<div id = 'hide' style = "position: absolute; display:flex; z-index: 10; align-items: center; justify-content: center; height:100%; width:100%; background: #CCFFFF ">
+		<div id = 'hide' style = "position: absolute; display:flex; z-index: 10; align-items: center; justify-content: center; height:100%; width:100%; background: #000 ">
 		<img class = 'load' src = "../img/loading.png">
 		</div>	
 
 <div id="fb-root"></div>
-	<script src="box2d.wasm.js"></script>
+
 	<noscript>
 		<div id="notSupportedWrap">
 			<h2 id="notSupportedTitle">This content requires JavaScript</h2>
@@ -44,8 +42,5 @@
 	<script src="scripts/offlineclient.js"></script>
 	<script src="scripts/main.js"></script>
 	<script src="scripts/register-sw.js"></script>
-
-
-
 </body>
 </html>
