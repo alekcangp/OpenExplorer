@@ -4,7 +4,7 @@
     width: 100%;
     height: 100%;
     z-index: -1;
-    opacity: 0.3;
+    opacity: 0.5;
     background:url(../img/bg.jpg) no-repeat center center fixed;
     -webkit-background-size: 100%; 
     -moz-background-size: 100%; 
@@ -21,8 +21,8 @@ body {
 	width: 100wh;
 	height: 90vh;
     color: #fff;
-	background: linear-gradient(-45deg, rgb(116, 82, 238), rgb(33, 45, 214), rgb(71, 83, 248), rgb(113, 4, 177));
-	background-size: 800% 800%;
+	background: linear-gradient(-45deg, rgb(116, 82, 238), rgb(176, 110, 250), rgb(71, 83, 248), rgb(113, 4, 177));
+	background-size: 400% 400%;
 	-webkit-animation: Gradient 45s ease infinite;
 	-moz-animation: Gradient 45s ease infinite;
 	animation: Gradient 45s ease infinite;
@@ -116,7 +116,7 @@ nav{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-
 	padding: 0px 12px;
 	margin-left: 60px;
 	width: calc(100% - 90px);
-	
+	text-align: center;
 	height: 100%;
   }
 

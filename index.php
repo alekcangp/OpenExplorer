@@ -41,7 +41,7 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
 <nav class="main-menu">
     <div class="tab">
             <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">
-              <img style = 'width:35px; height:35px; padding: 0; margin-top:0px; margin-left:-3px; position:absolute;' src = './img/logo100.png'/>
+              <img style = 'width:35px; height:35px; padding: 0; margin-top:-3px; margin-left:-3px; position:absolute;' src = './img/logo100.png'/>
               <i class="fas"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home</button>
             <button class="tablinks" onclick="openCity(event, 'Paris')"><i class="fas fa-gamepad "></i>&nbsp;&nbsp;&nbsp;&nbsp;Games</button>
             <button class="tablinks" onclick="openCity(event, 'Tokyo')"><i class="fas fa-robot"></i>&nbsp;&nbsp;&nbsp;&nbsp;The Bot</button>
@@ -54,6 +54,9 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
       <div id="London" class="tabcontent">
         <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
         <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; S P A C E</span>
+        </div>
+        <div style = "font-size: 25px; margin:0 0 25px 0">
+          OPEN community portal to publish awesome DIY (Do It Yourself) applications!
         </div>
       
         <button class="button" onclick = "popup()">
@@ -105,23 +108,15 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
             
            
         </dialog>
+        
+        
        
+
         <div class = 'table'>
       
-            <div style = "margin-bottom:5px;">
-                <div class = 'rowh'>
-                  <div class = 'cell' style = "height: 40px; width: 997px; font-size: 20px">
-                  <div v-if = "vm.project ==''">
-                  OPEN community portal to publish awesome DIY (Do It Yourself) applications!
-                    </div><div v-else><a class = "aa" onClick = "seeall()" href = "#">VIEW ALL</a></div>
-                  </div>
-                </div>
-            </div>
-             
-          <div class = 'tbody'>
-            <div id class = 'row' v-on:click = "function() { }" v-for = "t in formx" >
-             <hr style = "border-color: darkorange; size: 4px; ">
-              <div>
+           
+              <div class = 'rowh'>
+                <div v-if = "vm.project ==''">
                   <div class = 'cell2' style = "max-width: 120px; min-width: 120px;" >
                     NAME
                   </div>
@@ -132,9 +127,19 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
                    DESCRIPTION
                   </div>
                   <div class = 'cell2' style = "max-width: 90px; min-width: 90px;">
-                    <a v-if = "t.link != ''" class = "aa" href = "#" style = "padding-bottom: 0px; color:darkcyan;" v-on:click = "function() { window.open(t.link, '_blank')}">LINK</a>
+                   LINK
                   </div>
+                </div>
+                <div v-else class = 'cell2' style = "width: 997px;"> 
+                    <a class = "aa" onClick = "seeall()" href = "#">VIEW ALL</a>
+                </div>
               </div>
+          
+             
+          <div class = 'tbody'>
+            <div id class = 'row'  v-for = "t in formx" >
+             <hr style = "border-color: darkorange; size: 4px; ">
+              
       
               <div>
                   <div class = 'cell' >
@@ -154,8 +159,10 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
                   </div>
                   
                   <div class = 'cell' style = "max-width: 90px; min-width: 90px; ">
-                      <div class = "over" v-html = "likex[t.id]">
-                      </div>
+                    <a v-if = "t.link != ''" class = "aa" href = "#" style = "padding-bottom: 0px;" v-on:click = "function() { window.open(t.link, '_blank')}"><i class="fas fa-globe fa-lg"></i></a>
+                    <br><br>
+                    <div class = "over" v-html = "likex[t.id]">
+                    </div>
                   </div>
               </div>
       
@@ -218,14 +225,16 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
       }
       
       document.getElementById("defaultOpen").click();
+
+       
 </script>
+
 
 <script src = "./js/xcloud.js"></script>
 
-
       <script>
-         // vm.project = "<?php echo $pro ?>"
-          
+         vm.project = "<?php echo $pro ?>"
+         
                   window.fbAsyncInit = function() {
                    var err = 0;
                    FB.init({
@@ -259,6 +268,8 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
                      fjs.parentNode.insertBefore(js, fjs);
                    }(document, 'script', 'facebook-jssdk'));
         </script>
+
+
           
         <script>      
           //button
