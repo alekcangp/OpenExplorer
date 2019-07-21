@@ -117,7 +117,12 @@ nav{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-
 	margin-left: 60px;
 	width: calc(100% - 90px);
 	text-align: center;
-	height: 100%;
+	
+	height: calc(100vh - 10px);       /* Just for the demo          */
+	overflow-y: auto ;    /* Trigger vertical scroll    */
+	scrollbar-width: none;
+	overflow-x: hidden; 
+	text-align: center;
   }
 
   /*TITLE*/
@@ -154,5 +159,10 @@ nav{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-
 	  0 0 60px rgba(30,132,242,1);
 	}
   }
+
+  .shadow {
+    -webkit-filter: drop-shadow(0 0 3px white);
+    filter: drop-shadow(0 0 3px white);
+   }
   
 

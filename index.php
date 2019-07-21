@@ -191,6 +191,29 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
           <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
             <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; B O T</span>
             </div>
+            <div style = "font-size: 25px; margin:0 0 20px 0">
+            Telegram Bot for OPEN's community.
+        </div>
+            
+        <div>
+          <a href = "https://tele.gg/openmonitorbot" target="_blank"><img  style = "height: 80px; width: 80px" src = "./img/bot.png" class="shadow"/></a>
+        </div>
+        <div>
+          <a href = "https://tele.gg/openmonitorbot" target="_blank" class = "butt" style = "font-size:20px">@OpenMonitorBot</a>
+        </div>
+        <div style = "font-size: 20px; margin:10px 0 20px 0;">
+         What can this bot do?<br>Shows OPEN token info and a balance of Ethereum wallets. <br>Notifies about changing the balance.
+        </div>
+
+         <div>
+             <a href = "https://tele.gg/openmonitorbot" target="_blank"><img style = "width: 300px" src = "./img/botscr.jpg" class = "sh"/></a>
+        </div>
+            
+            
+            
+           
+           
+
       </div>
       <div id="Moscow" class="tabcontent">
           <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
@@ -238,7 +261,7 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
                   window.fbAsyncInit = function() {
                    var err = 0;
                    FB.init({
-                      appId      : '778193619243863',
+                      appId      : '?????????????',
                       cookie     : true,
                       xfbml      : true,
                       version    : 'v3.3'

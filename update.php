@@ -3,9 +3,9 @@ $idu = $_POST['idu'];
 $form = $_POST['form'];
 
 $servername = "localhost";
-$uname = "id10228016_openexplorer";
-$password = "Darina57";
-$dbname = "id10228016_openexplorer";
+$uname = "???????????";
+$password = "??????????";
+$dbname = "????????????";
 
 // Create connection
 $conn = new mysqli($servername, $uname, $password, $dbname);
