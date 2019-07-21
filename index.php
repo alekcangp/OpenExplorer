@@ -24,7 +24,7 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
 
 
 
-    <script src="https://kit.fontawesome.com/377a4c7685.js"></script>
+    <script src="https://kit.fontawesome.com/??????????.js"></script>
     <script src="./js/script.js"></script>
     <link href = "./css/style.css" type="text/css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
