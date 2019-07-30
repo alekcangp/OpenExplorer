@@ -132,7 +132,7 @@
     height: 630px;
     border: solid;
     padding: 8px;
-    background: rgba(0, 0, 139, 0.9);
+    background: rgba(75, 1, 160, 0.9);
     color: darkcyan;
     font-size: 21px;
     display: block;
@@ -152,23 +152,6 @@
 
     }
 
-    select {
-      scrollbar-width: none;
-      background: transparent;
-      width: 220px;
-      height: 35px;
-      resize: none;
-      font-family: 'Exo 2', sans-serif;
-      font-size: 19px;
-      color: skyblue;
-      padding:0px;
-    }
-
-    option {
-      background: rgba(40, 10, 61, 0.9);
-      font-family: 'Exo 2', sans-serif;
-    }
-  
    #auth  {
   position: absolute;
   left: 60px; right: 0;
@@ -183,7 +166,7 @@
   height: 218px;
   border: solid;
   padding: 8px;
-  background:rgba(0, 0, 139, 0.9);
+  background:rgba(75, 1, 160, 0.9);
   color: darkcyan;
   font-size: 25px;
   display: block;

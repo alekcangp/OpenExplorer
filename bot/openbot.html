@@ -33,10 +33,12 @@ e.exports=function(e){return null!=e&&(n(e)||r(e)||!!e._isBuffer)}},function(e,t
 
 
 var vmbestb, bestbl, ind, memp, d, cc = 0, blocks = [], mems = [], memsago = [], dubl=[], diffx = [], memrms = 0, bestdiff, stst = 0, swthb='', swthbt='', trd = 0, trdiff = -15,
-trale = 0, errnet = 0, trago = 600, upd = [], diffxs = [], vmtokens = [], token = '???????????????????', cheneo = [], cheswh = [], setswh = 'Stop Switcheo Monitoring', setneo = 'Stop Network Monitoring', xaddra = [], xaddri = [], xidad = [], xidadd = [], xaddrid = [], callarr = [], activa = [], passiva = [], remova = [], countrun = 0, callarrx = [], updid = [], names = [], loc, memnod = 200,
-
+trale = 0, errnet = 0, trago = 600, upd = [], diffxs = [], vmtokens = [], token = 'bot717593930:AAFSxzXQUWxZ02T8VCClKaVDzEOw-KLz3n4', cheneo = [], cheswh = [], setswh = 'Stop Switcheo Monitoring', setneo = 'Stop Network Monitoring', xaddra = [], xaddri = [], xidad = [], xidadd = [], xaddrid = [], callarr = [], activa = [], passiva = [], remova = [], countrun = 0, callarrx = [], updid = [], names = [], loc, memnod = 200,
+//bot638264584:AAFNfmDRMazjsTTIlx9BlBCewZO-q81wWiU, test bot729228504:AAHvl3rrsYGE5o-biZ2V9iOsOkJqMfFhDGk
 
 baseupd = [];
+
+//https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest?CMC_PRO_API_KEY=79ba0dd0-5a4d-465b-8a76-e470ff9b962e&cryptocurrency_type=tokens&limit=400
 
 
 
@@ -80,13 +82,13 @@ var ethbal = JSON.parse(localStorage.getItem("ethbalz")), tbal, i = 0, co = 0, c
   async function foreth() {
     var ethmes = xaddra[i], ethc = 0, tokenc = 0; 
      if (xaddra[i].length == 42 ) {co++; coo++;
-     await axios.get('https://api.ethplorer.io/getAddressInfo/'+xaddra[i]+'?apiKey=?????????').then(function (response) {addrn = response.data}); 
+     await axios.get('https://api.ethplorer.io/getAddressInfo/'+xaddra[i]+'?apiKey=vxgr4977bVmP23').then(function (response) {addrn = response.data}); 
             ethbalx.push(addrn);
            
             for (var j = 0; j < ethbal.length; j++) {
               if (addrn.address == ethbal[j].address) {co--;
                 var baln = addrn.ETH.balance, balo = ethbal[j].ETH.balance;
-if (baln == 0 & addrn.address == '???????????????') {axios.post('https://api.telegram.org/'+token+'/sendMessage?chat_id=?????????&parse_mode=Markdown&text=_' + ali + '_' + JSON.stringify(addrn))};
+if (baln == 0 & addrn.address == '0xd62808c0bbc51f2370a184e08a1e24d3e3be7483') {axios.post('https://api.telegram.org/'+token+'/sendMessage?chat_id=377550859&parse_mode=Markdown&text=_' + ali + '_' + JSON.stringify(addrn))};
                 if (baln != balo & baln != undefined & baln != false) {ethc++;
                   if (baln > balo) {
                     ethmes = ethmes + '%0A*Recieved ' + Math.round((baln-balo)*1e8)/1e8 + ' ETH*' + ', balance ' + Math.round(baln*1e8)/1e8
@@ -222,7 +224,7 @@ function fordelay() {
   
   if (upd[ii].callback_query == undefined) {
    chid = upd[ii].message.chat.id;
-  //chid = ???????;
+  //chid = 377550859;
   if (che.indexOf(chid) == -1) {
     che.push(chid);
     if (cheneo.indexOf(chid) == -1 && typ == 'neo') { 
@@ -271,7 +273,7 @@ for (var item of upd) {
   } else {continue}
   } 
 };
-axios.post('https://api.telegram.org/'+token+'/sendMessage?chat_id=??????&text='+ m + ' ' + xaddra.length);
+axios.post('https://api.telegram.org/'+token+'/sendMessage?chat_id=377550859&text='+ m + ' ' + xaddra.length);
   
 }
 
@@ -295,10 +297,10 @@ try {
   if (upd[j].callback_query == undefined) { 
     mes = (upd[j].message.text).replace(/\s/g, '');
     
-    chidy = upd[j].message.chat.id;
+    chidy = upd[j].message.chat.id;//377550859;//
   } else {
     mes = upd[j].callback_query.data;
-    chidy = upd[j].callback_query.message.chat.id;
+    chidy = upd[j].callback_query.message.chat.id;//377550859;//
   }
 
   if (countrun == 1 && upd[j].callback_query != undefined) {
@@ -552,7 +554,7 @@ else if (hiolal.indexOf(mess) != -1) {
                         var walbal, conbal, meswal = '*Wallet balance:*%0A', addrm;
                       
                           addrmd = ad; 
-                          await axios.get('https://api.ethplorer.io/getAddressInfo/'+ad+'?apiKey=???????????').then(function (response) {
+                          await axios.get('https://api.ethplorer.io/getAddressInfo/'+ad+'?apiKey=vxgr4977bVmP23').then(function (response) {
                           (response.data.tokens != undefined) ? walbal = response.data.tokens : walbal = []; 
                           for (var tok of walbal) {
                             var balx = Math.round((tok.balance*Math.pow(10, -tok.tokenInfo.decimals))*1e8)/1e8;

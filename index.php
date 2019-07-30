@@ -9,22 +9,24 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
     <meta name="viewport" content="target-densitydpi=device-dpi">
     <meta name="description" content="OPEN EXPLORER is a project for OPEN DApp Development Competition."/>
 
-
+<link href = "https://use.fontawesome.com/releases/v5.1.0/css/all.css" type="text/css" rel="stylesheet"/>
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.min.js"></script>
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js" async></script>
+ 
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0-beta.1/axios.js"></script>
   <script src = "https://code.jquery.com/jquery-1.7.1.min.js" type="text/javascript"></script>
   <script src = "./js/dialog.js" ></script>
+  
   
   <link rel="icon" type="image/gif" href="./img/favicon.png" size = "any" >
   <link href = "./css/xcloud.css" type="text/css" rel="stylesheet"/>
   <link href="https://fonts.googleapis.com/css?family=Kelly+Slab|Marck+Script&display=swap" rel="stylesheet">
   
+  
   <title>OPEN EXPLORER</title> 
 
 
 
-    <script src="https://kit.fontawesome.com/??????????.js"></script>
     <script src="./js/script.js"></script>
     <link href = "./css/style.css" type="text/css" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
@@ -45,7 +47,8 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
               <i class="fas"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Home</button>
             <button class="tablinks" onclick="openCity(event, 'Paris')"><i class="fas fa-gamepad "></i>&nbsp;&nbsp;&nbsp;&nbsp;Games</button>
             <button class="tablinks" onclick="openCity(event, 'Tokyo')"><i class="fas fa-robot"></i>&nbsp;&nbsp;&nbsp;&nbsp;The Bot</button>
-            <button class="tablinks" onclick="openCity(event, 'Moscow')"><i class="fas fa-network-wired"></i>&nbsp;&nbsp;&nbsp;&nbsp;Network</button>
+            <button class="tablinks" onclick="openCity(event, 'Moscow')"><i class="fas fa-tachometer-alt"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;Tracking</button>
+            <button class="tablinks" onclick="openCity(event, 'Omsk')"><i class="fas fa-wallet"></i>&nbsp;&nbsp;&nbsp;&nbsp;Wallet</button>
     </div>
 </nav>
 
@@ -177,8 +180,10 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
           <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
             <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; G A M E S</span>
             </div>
-
-            <div style = "width:100%; height: 100%; text-align: center; padding: 100px 0 0 0">
+            <div style = "font-size: 25px; margin:0 0 25px 0">
+          Just for fun and OPEN's fans!
+            </div>
+            <div style = "width:100%; height: 100%; text-align: center; padding: 80px 0 0 0">
             <img  src = "./img/game1.jpg" onclick = "opengame('game1')" class = "sh"/>
             
             <img  src = "./img/game2.jpg" onclick = "opengame('game2')" class = "sh"/>
@@ -209,23 +214,44 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
              <a href = "https://tele.gg/openmonitorbot" target="_blank"><img style = "width: 300px" src = "./img/botscr.jpg" class = "sh"/></a>
         </div>
             
-            
-            
-           
-           
-
       </div>
+
       <div id="Moscow" class="tabcontent">
           <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
-            <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; N E T W O R K</span>
+            <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; T R A C K I N G</span>
             </div>
+
+
+            <iframe src="./track/index.html" width="100%" style = "height:calc(100vh - 50px)" scrolling="no" frameborder="0" allowfullscreen></iframe>
+            
+            
+
+           <!-- <iframe id="open-widget-iframe" src="https://openfuture.io/widget/0x4Fc2AC2C62BfB52da97215028FaAC00fCFB443BF" width="400" height="600" scrolling="no" frameborder="0" allowfullscreen></iframe>
+-->
+
+
       </div>
 
+      <div id="Omsk" class="tabcontent">
+          <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+            <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; W A L L E T</span><br>
+            
+            </div>
+           <span style = "color:orange">OPEN Mainet Network is now under development. Do not transfer any asset to this wallet!</span>
+           <div id = "ref" style = "position:absolute; left:calc(100% / 2 - 140px); top:50%;">
+              <img src = "./img/ref.png"/>
+           </div>
+            <iframe id="open-widget-iframe" src="https://887f07af.ngrok.io" width="100%" style = "height:calc(100vh - 100px)" scrolling="no" frameborder="0" allowfullscreen></iframe>
+      </div>
       
      
-      <div style = 'position: absolute; right: 10px;bottom: 30px;text-align: right'>
-        <span style = 'color:cornflowerblue; font-size: 16px; '>powered by</span> <br><img  src = './img/logo1.png'/>  
+      <div style = 'position: absolute; right: 25px;bottom: 30px;text-align: right'>
+        <span style = 'color:cornflowerblue; font-size: 16px; '>powered by</span> <br><a href = "https://openfuture.io" target = "_blank"><img  src = './img/logo1.png'/></a>
       </div>
+
+
+
+      
     
 </div> 
 
@@ -234,8 +260,13 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
 
  <script>
       function openCity(evt, cityName) {
+
+      
         var i, tabcontent, tablinks;
         tabcontent = document.getElementsByClassName("tabcontent");
+
+        if (cityName == 'Omsk') { document.getElementById('ref').style.display = 'block'; setTimeout(function(){document.getElementById('ref').style.display = 'none'}, 4000)  };
+
         for (i = 0; i < tabcontent.length; i++) {
           tabcontent[i].style.display = "none";
         }
@@ -261,7 +292,7 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
                   window.fbAsyncInit = function() {
                    var err = 0;
                    FB.init({
-                      appId      : '?????????????',
+                      appId      : '778193619243863',
                       cookie     : true,
                       xfbml      : true,
                       version    : 'v3.3'
@@ -314,6 +345,51 @@ if (!empty($_GET['project'])) { $pro = $_GET['project'];} else {$pro = '';}
             });
           });
         </script>
+<script>
+/*
+isInstalled();
+function isInstalled() {
+   if (typeof web3 !== 'undefined'){
+      alert('MetaMask is installed')
+isLocked();
+
+   } 
+   else{
+      alert('MetaMask is not installed')
+   }
+}
+
+
+function isLocked() {
+   web3.eth.getAccounts(function(err, accounts){
+      if (err != null) {
+         alert(err)
+      }
+      else if (accounts.length === 0) {
+         alert('MetaMask is locked')
+      }
+      else {
+         alert('MetaMask is unlocked')
+      }
+   });
+}
+//web3.currentProvider.publicConfigStore.on('update', function(){alert('u')});
+var account = web3.eth.accounts[0];
+var accountInterval = setInterval(function() {
+  if (web3.eth.accounts[0] !== account) {
+    account = web3.eth.accounts[0];
+    updateInterface();
+  }
+}, 100);
+
+function updateInterface(){
+  alert(1)};
+
+//web3.personal.sign(web3.fromUtf8("Hello from Toptal!"), web3.eth.coinbase, alert(1));
+*/
+</script>
+
+
  
 </body>
 </html>
