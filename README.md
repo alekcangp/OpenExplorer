@@ -1,6 +1,6 @@
  <p align="center"><a target='_blank' href = "https://openexplorer.tech"><img src = "./img/title.jpg"></a></p>
  <p align="center">>> <a href="https://openexplorer.tech">https://openexplorer.tech</a> <<</p>
- <p align="center"><img src="https://img.shields.io/badge/STATUS-DEVELOPMENT-green/></p>
+ <p align="center"><img src="https://img.shields.io/badge/STATUS-DEVELOPMENT-green"/></p>
 
 
 
