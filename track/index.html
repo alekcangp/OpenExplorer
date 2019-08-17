@@ -22,7 +22,7 @@
 <link href="https://fonts.googleapis.com/css?family=Pathway+Gothic+One" rel="stylesheet">
 
 <title>EXPLORER</title>
-
+<style>img[alt="www.000webhost.com"]{display:none}</style>
 </head><body>
 
 
@@ -63,12 +63,16 @@
   </div>
 
 
-    <div  style = "width: 80px; text-align: right"><span title = "Production Time">{{lastt[zz]}}&nbsp;&nbsp;&#9719;&nbsp;&nbsp;</span><br><span title = "Best Block">{{block[zz]}}&nbsp;&nbsp;&#9671;&nbsp;&nbsp;</span></div>
+    <div  style = "width: 80px; text-align: right"><span title = "Block Time">{{lastt[zz]}}&nbsp;&nbsp;&#9719;&nbsp;&nbsp;</span><br><span title = "Block Number">{{block[zz]}}&nbsp;&nbsp;&#9671;&nbsp;&nbsp;</span></div>
     <div>
       <img  style = "width: 45px; height: 45px; margin-top:0px " src="./img/block.gif"/>
     </div>
     
-    <div style = "width: 80px; text-align: left; margin-top: -2px"><span title = "Txns per second">&nbsp;&nbsp;&#8651;&nbsp;&nbsp; {{txs[zz]}}<br></span><span v-if = "ala[zz] == 'OK'">&nbsp;&nbsp;&#9788;</span><span  v-else style = "color: yellow">&nbsp;&nbsp;&#9788;</span><span title = "Nodes">&nbsp;&nbsp;{{ala[zz]}}&nbsp;</span></div>
+    <div style = "width: 80px; text-align: left; margin-top: -2px">
+      <span title = "Txns per second">&nbsp;&nbsp;&#8651;&nbsp;&nbsp; {{txs[zz]}}</span><br>
+      <span v-if = "zz == 2" title = 'Gas Price'>&nbsp;Gw&nbsp;&nbsp;&nbsp;{{ala[zz]}}</span>
+      <span title = "Nodes" v-else >&nbsp;&nbsp;&#9788;&nbsp;&nbsp;{{ala[zz]}}</span>
+    </div>
     
     <div style = "width: 80px; text-align: right; color: darkcyan"> 
         <span v-if = '(sumcon > 0 || sumch > 0) && sumwal > 0 && namaddr.length > 1'>
@@ -159,7 +163,7 @@
         <tbody>
           <tr v-on:click = "function() { window.open('https://www.coingecko.com/en/coins/' + symbolid[t.symbol], '_blank') }" v-for = "t in tokenss">
             <td style = "width: 41px; font-size: 18px;" >
-              <span v-if = "t.symbol == 'SWTH'" style = "text-shadow: 0px 0px 6px white;font-weight: 500; ">{{t.symbol}}</span>
+              <span v-if = "t.symbol == 'OPENC'" style = "text-shadow: 0px 0px 6px white;font-weight: 500; color:white ">{{t.symbol}}</span>
               <span v-else>{{t.symbol}}</span>
             </td>
             <td style = "width: 58px; font-size: 16px; text-align: right; color: darkcyan">

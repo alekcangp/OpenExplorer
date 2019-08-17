@@ -1,3 +1,43 @@
+.rotate {
+	-o-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-webkit-transform: rotate(90deg);
+}
+
+
+.point:hover {
+	text-shadow:2px 2px black;
+	cursor:pointer;
+  }
+
+.gold {
+	background: gold; 
+	height: 30px;
+	font-weight: bolder;
+	font-size:20px;
+}
+.silver {
+	background: silver;
+	height: 25px;
+	font-weight: bold;
+	font-size:18px;
+}
+.bronze {
+	background: goldenrod;
+	height: 20px;
+	font-size:16px;
+}
+
+.box{
+box-shadow:0 0 10px darkblue;
+ border: 2px solid blue;
+  border-radius: 5px;	
+}
+
+.contur {
+	text-shadow:1px 1px black
+}
 
 
 #pixie{position:fixed;
@@ -105,10 +145,12 @@ nav{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-
 	background-color: rgb(78, 81, 233);
   }
   
-  /* Create an active/current "tab button" class */
+  /* Create an active/current "tab button" 
+  ass */
   .tab button.active {
 	background-color: rgb(111, 10, 194);
   }
+
   
   /* Style the tab content */
   .tabcontent {
@@ -118,7 +160,7 @@ nav{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-
 	width: calc(100% - 90px);
 	text-align: center;
 	
-	height: calc(100vh - 10px);       /* Just for the demo          */
+	height: calc(100vh - 5px);       /* Just for the demo          */
 	overflow-y: auto ;    /* Trigger vertical scroll    */
 	scrollbar-width: none;
 	overflow-x: hidden; 

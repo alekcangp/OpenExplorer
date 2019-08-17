@@ -120,7 +120,8 @@
  }
 
   tbody {
-  height: calc(100vh - 500px);       /* Just for the demo          */
+  height: calc(100vh - 400px);
+  min-height: 200px;       /* Just for the demo          */
   overflow-y: auto ;    /* Trigger vertical scroll    */
   scrollbar-width: none;
   overflow-x: hidden;  /* Hide the horizontal scroll */

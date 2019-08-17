@@ -1,0 +1,504 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="target-densitydpi=device-dpi">
+  
+  <meta name="description" content="OPEN Explorer is a project for OPEN DApp Development Competition."/>
+  <meta property="og:image" content="https://openexplorer.000webhostapp.com/img/share1.jpg" />
+  <meta http-equiv="Cache-Control" content="no-cache">
+  <link rel = "stylesheet/less" type="text/css" href="./css/styles.less" />
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.min.js"></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js" async></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js" ></script>
+  <script src = "https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0-beta.1/axios.js"></script>
+  <script src = "https://code.jquery.com/jquery-1.7.1.min.js" type="text/javascript"></script>
+  <script src = "./js/dialog.js" ></script>
+
+  
+  <link href = "https://use.fontawesome.com/releases/v5.1.0/css/all.css" type="text/css" rel="stylesheet"/>
+  <link rel = "icon" type="image/gif" href="./img/favicon.png" size = "any" >
+  <link href = "./css/xcloud.css" type="text/css" rel="stylesheet"/>
+  <link href = "https://fonts.googleapis.com/css?family=Kelly+Slab|Marck+Script&display=swap" rel="stylesheet">
+  
+  <title>OPEN Explorer</title> 
+
+    <script src = "./js/script.js"></script>
+    <link href = "./css/style.css" type="text/css" rel="stylesheet"/>
+    <link href = "https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
+    <style>
+      .sh{cursor:pointer; box-shadow:0 0 10px darkblue; border: 2px solid blue; border-radius: 5px; margin: 0 50px}
+      .sh:hover{box-shadow:0 0 10px white;}
+    </style>
+
+<!-- Yandex.Metrika counter -->
+
+<script type="text/javascript" >
+
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym");
+
+   ym(54910465, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+   });
+   
+</script>
+
+<noscript><div><img src="https://mc.yandex.ru/watch/54910465" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- Hotjar Tracking Code for https://openexplorer.000webhostapp.com/ -->
+  <script>
+   
+   (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:1444573,hjsv:6};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+      })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+      
+</script>
+<style>img[alt="www.000webhost.com"]{display:none}</style>
+</head>
+<body>
+
+    <div id="fb-root"></div>
+    <canvas id="pixie"></canvas>
+    <div id = "vmx" v-cloak>  
+
+<!--cloud logo-->
+<div id="Clouds" style = "z-index:-1">
+  <div class="Cloud Foreground"></div>
+  <div class="Cloud Background"></div>
+  <div class="Cloud Foreground"></div>
+  <div class="Cloud Background"></div>
+  <div class="Cloud Foreground"></div>
+  <div class="Cloud Background"></div>
+  <div class="Cloud Background"></div>
+  <div class="Cloud Foreground"></div>
+  <div class="Cloud Background"></div>
+  <div class="Cloud Background"></div>
+</div>
+
+ 
+<nav class="main-menu">
+    <div class="tab">
+            <button class="tablinks" onclick="openCity(event, 'London','home')" id = "home" >
+              <img style = 'width:35px; height:35px; padding: 0; margin-top:-3px; margin-left:-3px; position:absolute;' src = './img/logo100.png'/>
+             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Space</button>
+            <button class="tablinks" onclick="openCity(event, 'Paris','games')" id = "games"><i class="fas fa-gamepad "></i>&nbsp;&nbsp;&nbsp;&nbsp;Games</button>
+            <button class="tablinks" onclick="openCity(event, 'Tokyo','bot')" id = "bot"><i class="fas fa-robot"></i>&nbsp;&nbsp;&nbsp;&nbsp;The Bot</button>
+            <button class="tablinks" onclick="openCity(event, 'Moscow','monitor')" id = "monitor"><i class="fas fa-tachometer-alt"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monitor</button>
+            <button class="tablinks" onclick="openCity(event, 'Omsk','wallet')" id = "wallet"><i class="fas fa-wallet"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wallet</button>
+            <button class="tablinks" onclick="openCity(event, 'Tomsk','invest')" id="invest"><i class="fas fa-donate"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invest</button>
+            <div style = "position:absolute; bottom:10px;"><a href = "https://openfuture.io" target = "_blank"><img src = "./img/logo2.png"/></a></div>
+            </div>
+</nav>
+
+<!-- OPEN SPACE -->
+      <div id="London" class="tabcontent">
+        <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+        <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; S P A C E</span>
+        </div>
+        <div style = "font-size: 25px; margin:0 0 25px 0">
+          OPEN community portal to publish awesome DIY (Do It Yourself) applications!
+        </div>
+      
+        <button class="button" onclick = "popup()">
+            <div class="pattern">
+              <div class="target inner bg1" ></div>
+            </div>
+            <div class="text">{{text}}</div>
+        </button>
+
+        <dialog id = "auth">
+            <div style="width:30px; position: absolute; right: 0px; top: 3px; font-size: 15px;" onclick = "modalx('#auth')" class="butt">&#10007;</div>
+            <b>A U T H O R I Z A T I O N</b><br>
+            <div style = "margin-top:60px">
+              <div class="fb-login-button"  data-width="" data-scope="public_profile" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="true">
+              </div>
+          </div>
+        </dialog>
+
+        <dialog id = "add">
+
+            <div style="width:30px; position: absolute; right: 0px; top: 3px; font-size: 15px;" onclick = "modalx('#add')" class="butt">&#10007;</div>
+            <div id = "welcome">&nbsp;</div>
+            
+           <br>
+            <div style = "margin-top:5px">Application name: <span style = "font-size: 13px"> (HTML tags available)</span></div>
+            
+            <textarea wrap="off" placeholder="" v-model = "form['tname']" ></textarea>
+            <br>
+            Logo: <span style = "font-size: 13px"> (HTML tags available)</span>
+            <br>
+            <textarea wrap="off" placeholder="" v-model = "form['memb']" ></textarea>
+            <br>
+            Description: <span style = "font-size: 13px"> (HTML tags available)</span>
+            <br>
+            <textarea style = "height: 200px; text-align: justify" placeholder="" v-model = "form['discr']"></textarea>
+            <br>
+            Application link:
+            <br>
+            <textarea wrap="off" placeholder="" v-model.trim = "form['link']" ></textarea>
+            
+            <div style = "font-size:15px; margin-top: 10px" v-if = "text == 'ADD PROJECT'">* One user is able add only one application.</div><div v-else>&nbsp;</div>
+            <div style="width:150px;" v-on:click = "dbupdate()" class="butt">&#10003;</div>
+            <div style = "margin-top:5px; width:150px; display:inline-block">
+              <div class="fb-login-button"  data-width="" data-scope="public_profile" data-size="medium" data-button-type="continue_with" data-auto-logout-link="true" data-use-continue-as="true"></div>
+            </div>
+        
+            <div style="width:150px;display:inline-block" v-on:click = "modalx('#add')" class="butt">&#10007;</div>
+            <div v-if = "formxid[userid] != undefined" style="position: absolute; right: 15px; bottom: 3px; font-size: 15px;" v-on:click = "dbdel()" class="butt">Delete</div>
+            
+           
+        </dialog>
+        
+        
+       
+
+        <div class = 'table'>
+      
+           
+              <div class = 'rowh'>
+                <div v-if = "vm.project ==''">
+                  <div class = 'cell2' style = "max-width: 120px; min-width: 120px;" >
+                    NAME
+                  </div>
+                  <div class = 'cell2' style = "max-width: 120px; min-width: 120px;">
+                    LOGO
+                  </div>
+                  <div class = 'cell2' style = "width: 639px;">
+                   DESCRIPTION
+                  </div>
+                  <div class = 'cell2' style = "max-width: 90px; min-width: 90px;">
+                   LINK
+                  </div>
+                </div>
+                <div v-else class = 'cell2' style = "width: 997px;"> 
+                    <a class = "aa" onClick = "seeall()" href = "#">VIEW ALL</a>
+                </div>
+              </div>
+          
+             
+          <div class = 'tbody'>
+            <div id class = 'row'  v-for = "t in formx" >
+             <hr style = "border-color: darkorange; size: 4px; ">
+              
+      
+              <div>
+                  <div class = 'cell' >
+                    <div class = "over" style = "width: 120px; font-weight: bold; font-size: 18px; white-space: pre-wrap" v-html = "t.tname">
+                    
+                    </div>
+                  </div>
+                  <div  class = 'cell'style = "max-width: 120px; min-width: 120px; ">
+                    <div class = "over" style = "white-space: pre-wrap;" v-html = "t.memb">
+                      
+                    </div>
+                  </div>
+                  <div  class = 'cell' style = " text-align: left; max-width: 617px; min-width: 617px; ">
+                    <div class = "over" v-html = "t.discr" style = "white-space: pre-wrap">
+                     
+                    </div>
+                  </div>
+                  
+                  <div class = 'cell' style = "max-width: 90px; min-width: 90px; ">
+                    <a v-if = "t.link != ''" class = "aa" href = "#" style = "padding-bottom: 0px;" v-on:click = "function() { window.open(t.link, '_blank')}"><i class="fas fa-globe fa-lg"></i></a>
+                    <br><br>
+                    <div class = "over" v-html = "likex[t.id]">
+                    </div>
+                  </div>
+              </div>
+      
+            </div>
+          </div>   
+        </div>
+
+    </div>
+
+<!-- OPEN GAMES -->
+      <div id="Paris" class="tabcontent">
+          <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+            <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; G A M E S</span>
+            </div>
+            <div style = "font-size: 25px; margin:0 0 25px 0">
+          Just for fun and OPEN's fans!
+            </div>
+            <div style = "width:100%; height:calc(100vh - 220px); text-align: center; padding: 80px 0 0 0">
+            <img  src = "./img/game1.jpg" onclick = "opengame('game1')" class = "sh"/>
+            
+            <img  src = "./img/game2.jpg" onclick = "opengame('game2')" class = "sh"/>
+            </div>
+           
+               
+           
+      </div>
+      <div id="Tokyo" class="tabcontent">
+          <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+            <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; B O T</span>
+            </div>
+            <div style = "font-size: 25px; margin:0 0 20px 0">
+            Telegram Bot for OPEN's community.
+        </div>
+            
+        <div>
+          <a href = "https://tele.gg/openmonitorbot" target="_blank"><img  style = "height: 80px; width: 80px" src = "./img/bot.png" class="shadow"/></a>
+        </div>
+        <div>
+          <a href = "https://tele.gg/openmonitorbot" target="_blank" class = "butt" style = "font-size:20px">@OpenMonitorBot</a>
+        </div>
+        <div style = "font-size: 20px; margin:10px 0 20px 0;">
+         What can this bot do?<br>Shows OPEN token info and a balance of Ethereum wallets. <br>Notifies about changing the balance.
+        </div>
+
+         <div>
+             <a href = "https://tele.gg/openmonitorbot" target="_blank"><img style = "width: 300px" src = "./img/botscr.jpg" class = "sh"/></a>
+        </div>
+            
+      </div>
+<!--
+      <div id="Moscow" class="tabcontent">
+          <div class = "title" style = 'width: 100%; height: 50px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+            <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; M O N I T O R</span>
+            </div>
+            <div style = "margin-bottom:5px; width:500px;text-align: left; margin-left:calc(50% - 210px)">
+              OPEN Token: ${{prusd}} convert to 
+            <select v-model.trim="convert" style = "background: transparent; color:white">
+              <option style = "background: rgba(0, 0, 139, 0.687);color: white" v-for="(c,p) in rat" v-bind:value="p">{{p}}</option>
+            </select>
+            <span v-if = "rat[convert] != undefined && prusd > 0">{{Math.round(rat[convert]*prusd*1e8)/1e8}}</span>
+              
+
+            </div>
+            <iframe src="./track/index.html" width="100%" style = "height:calc(100vh - 65px)" scrolling="auto" frameborder="0" allowfullscreen></iframe>
+      </div>
+-->
+
+      <div id="Omsk" class="tabcontent">
+          <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+            <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; W A L L E T</span><br>
+            
+            </div>
+           <span style = "color:orange">OPEN Mainet Network is now under development. Do not transfer any asset to this wallet!</span>
+           <div id = "ref" style = "position:absolute; left:calc(100% / 2 - 140px); top:50%;">
+              <img src = "./img/ref.png"/>
+           </div>
+            <iframe src="" width="100%" style = "height:calc(100vh - 105px)" scrolling="no" frameborder="0" allowfullscreen></iframe>
+      </div>
+
+<div id="Tomsk" class="tabcontent">
+            <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+              <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; I N V E S T</span>
+            </div>
+            <div style = "font-size: 25px; margin:0 0 35px 0">
+              <span>Invest in OPEN Explorer via DApp and get dividends.</span>
+            </div>
+            
+          <div style = " margin-left:calc(50% - 450px);width:365px;">
+              <div class = "box" style = "padding:10px; font-size: 24px; text-align:left; margin-bottom:20px">
+                <img style = "display:inline-block" src = "./img/chest.png"/>
+                PRIZE POOL ETH: <b class = "point" style = "color:gold" v-on:click = "function() { window.open('https://etherscan.io/address/'+pool, '_blank') }">{{ether}}</b><br>
+                PRIZE POOL OPEN: <span class = "point" v-if = "openc > 0" style = "color:gold" v-on:click = "function() { window.open('https://etherscan.io/address/'+pool, '_blank') }">
+                <b>{{openc}}</b></span>
+                <span style = "font-size:19px"v-else>Awaiting result</span>
+              </div>
+
+            <div class = "box" style = " background:rgba(255,255,255,0.3); overflow: hidden; width:360px; height:465px;">
+              <div class = "contur" id = 'meta' style = "position:relative; top:5px; color:red; font-size:13px">&nbsp</div> 
+              <iframe style = "margin-top:10px" id="open" src="https://api.openfuture.io/widget/0x45EFCF2613Fdc5529a0B5FEe769E2EC64bA8dd72" width="320" height="430" scrolling="no" frameborder="0" allowfullscreen></iframe>
+            </div>  
+          </div>
+          
+
+          <div class = 'table box' style = "margin-left:calc(50% - 60px); margin-top:-709px; overflow: hidden; width:510px; height:705px">
+      
+           
+              <div class = 'rowh'>
+               
+                  <div class = 'cell2' style = "max-width: 25px; min-width:25px;" >
+                    #
+                  </div>
+                  <div class = 'cell2' style = "max-width: 123px; min-width: 123px;">
+                   NAME
+                  </div>
+                  <div class = 'cell2' style = "width: 100px;">
+                   INVEST
+                  </div>
+                  <div class = 'cell2' style = "max-width: 100px; min-width: 100px;">
+                  <span style = "font-size:15px">DIVIDENDS<br>ETH</span>
+                  </div>
+                  <div class = 'cell2' style = "max-width: 100px; min-width: 100px;">
+                  <span style = "font-size:15px">DIVIDENDS<br>OPEN</span>
+                  </div>
+              
+               
+              </div>
+          
+             
+          <div class = 'tbody contur' style = "height:665px">
+            <div v-for = "t in board" v-on:click = "function() { window.open('https://etherscan.io/tx/'+t.hash, '_blank') }"  v-bind:class="[ t.hash != '' ? 'point' : {}]">
+      
+              <div>
+                  <div class = 'cell over' style = "width: 25px;"  v-bind:class="[ t.num == 1 ? 'gold' : t.num > 3 ? 'bronze' : 'silver']">
+                    {{t.num}}
+                  </div>
+                  <div  class = 'cell over' style = "max-width: 123px; min-width: 123px; text-align: left; white-space: pre-wrap;" v-html = "t.name" v-bind:class="[ t.num == 1 ? 'gold' : t.num > 3 ? 'bronze' : 'silver']">
+                   
+                  </div>
+                  <div  class = 'cell over' style = "max-width: 98px; min-width: 98px;"  v-bind:class="[ t.num == 1 ? 'gold' : t.num > 3 ? 'bronze' : 'silver']">
+                     {{t.invest}}
+                  </div>
+                  
+                  <div class = 'cell over' style = "max-width: 100px; min-width: 100px; "  v-bind:class="[ t.num == 1 ? 'gold' : t.num > 3 ? 'bronze' : 'silver']">
+                    {{t.deth}} 
+                  </div>
+
+                  <div class = 'cell over' style = "max-width: 100px; min-width: 100px; "  v-bind:class="[ t.num == 1 ? 'gold' : t.num > 3 ? 'bronze' : 'silver']">
+                   
+                  <span v-if = "t.deth > 0 && openc == 0">Awaiting</span><span v-else>{{t.dopen}}</span>
+                  
+                  </div>
+
+              </div>
+      
+            </div>
+          </div> 
+         </div>
+ 
+          <div class = "contur" style = "width:890px; height: 300px; margin-left:calc(50% - 440px); margin-top:25px; text-align:center; font-size:16px">
+              
+               <b><u>RULES INVESTMENT COMPETITION</u></b><br>
+             
+              Total Prize Pool (TPP) is 92% of all investments plus 3% Reward of 
+              <a href = "https://blog.openfuture.io/announcements/open-dapp-development-competition/" target = "_blank" style = "color:skyblue">
+                OPEN DApp Competition</a> in case this project will win.  
+              <br>
+                
+              Developers reward is 8% of all investments. All dividends will be paid after announcing OPEN DApp Competition winners.
+              <br> 
+              The best investors and one lucky will divide the prize pool among themselves. <br>The place on leaderboard depends on the total amount and time your payments.
+           <div style = "width:500px; text-align:left; margin-left:calc(50% - 130px);"> 
+               <b style = "background:gold; ">GOLD Zone</b> - 1 investor get 50% of TPP.<br>
+                <b style = "background:silver; "> SILVER Zone</b> - 2 investors get 20% of TPP each.<br>
+                <b style = "background:Goldenrod;"> BRONZE Zone</b> - 1 lottery winner get 10% of TPP.
+              </div>
+              
+              Lottery winner is the one who has the highest hash of the payment transaction.<br>In case multiple payments, only the last hash is valid.
+              <br>
+              Telegram username and email are required to contact and confirm payout address.
+              <br>
+                The Investment Competition will end at 23:59:59 GMT, on September 25, 2019.<br>Developer reserves the right to change timeline.
+              
+              <div style = "width:300px; text-align:left; margin-left:calc(50% - 110px); font-size:20px">
+                Timeline: <b style = "color:red"> {{timer}}</b>
+              </div>
+         </div> 
+       </div> 
+        
+</div> 
+
+<script src = "./js/xcloud.js"></script>
+
+ <script>
+   // tab menu
+    var tt = 'invest', loc =  localStorage.getItem("tab");
+    (loc != undefined ) ?  tt = loc : {};
+    document.getElementById(tt).click(); 
+
+
+      function openCity(evt, cityName, p) {
+       if (moment().unix() < 1569023999 && cityName != 'Tomsk' ) {//&& cityName != 'London' && cityName != 'Moscow') {
+          alert('This tab will be unlocked at 23:59:59 GMT, on September 20, 2019'); document.getElementById('invest').click(); 
+         return };
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("tabcontent");
+
+        if (cityName == 'Omsk') { document.getElementById('ref').style.display = 'block'; setTimeout(function(){document.getElementById('ref').style.display = 'none'}, 4000)  };//alert mess
+
+        for (i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].style.display = "none";
+        }
+        tablinks = document.getElementsByClassName("tablinks");
+        for (i = 0; i < tablinks.length; i++) {
+          tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(cityName).style.display = "block";
+        evt.currentTarget.className += " active";
+        localStorage.setItem("tab", p);
+      }     
+      </script>
+
+
+      <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const mypar = urlParams.get('project');
+        if (mypar != undefined)  vm.project = mypar;
+        
+        
+                  window.fbAsyncInit = function() {
+                   var err = 0;
+                   FB.init({
+                      appId      : '778193619243863',
+                      cookie     : true,
+                      xfbml      : true,
+                      version    : 'v3.3'
+                    });
+                    FB.AppEvents.logPageView(); 
+                    FB.getLoginStatus(
+                      function(response) {setTimeout(chbut, 2000);});
+                    //setTimeout(chbut, 2000);
+                        
+                   
+                    FB.Event.subscribe('auth.login', function(response) {
+                        if (vm.open == '#auth' && err == 0) { modalx('#auth'); fbupdate(1000); popup(); } else {err = 0; } // err ложное событие login 
+                        chbut();
+                      });
+          
+                    FB.Event.subscribe('auth.logout', function(response) {err = 1; 
+                        if (vm.open == '#add') {modalx('#add'); }
+                      vm.text = 'ADD PROJECT'; vm.userid = '';
+                      });   
+                  
+                  };
+          
+                  (function(d, s, id){
+                     var js, fjs = d.getElementsByTagName(s)[0];
+                     if (d.getElementById(id)) {return;}
+                     js = d.createElement(s); js.id = id;
+                     js.src = "https://connect.facebook.net/en_US/sdk.js";
+                     fjs.parentNode.insertBefore(js, fjs);
+                   }(document, 'script', 'facebook-jssdk'));
+        </script>
+
+        
+    <script> 
+    //button
+    const buttons = document.querySelectorAll('.button');
+    buttons.forEach((button) => {
+      let target = button.querySelector('.target');
+      function handleMove(e) {
+        const x = -50 + (e.pageX - button.offsetLeft - 300 / 2) / 3;
+        const y = -10 + (e.pageY - button.offsetTop - 100 / 2) / 3;
+    
+        target.style.setProperty('--x', `${ x }px`)
+        target.style.setProperty('--y', `${ y }px`)
+      }
+      button.addEventListener('mousemove', (e) => {
+        handleMove(e);
+      });
+      button.addEventListener('touchmove', (e) => {
+        handleMove(e.changedTouches[0]);
+      });
+    });
+    </script>
+    
+</body>
+</html>

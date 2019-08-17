@@ -143,7 +143,7 @@ blockupd();
 setInterval(blockupd, 30000);
 
 async function blockupd() {
-  var block, ontblock, ethblock, open;
+  var block, ontblock, ethblock, open, timebl = 0;
 /*
   await axios.get('https://api.neoscan.io/api/main_net/v1/get_height').then(function(response) { block = response.data.height }).catch(function(){}); 
 
@@ -162,16 +162,27 @@ async function blockupd() {
   });
 */
 //ethereum
-  await axios.get('https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=DUHD9V7SWAJRE1XPHI8Y3JS414TMRXDAK1').then(function(response) { ethblock = response.data.result }); 
-
-  axios.get('https://api.etherscan.io/api?module=proxy&action=eth_getBlockByNumber&tag='+ethblock+'&boolean=true&apikey=DUHD9V7SWAJRE1XPHI8Y3JS414TMRXDAK1').then(function(response) {
+ // await axios.get('https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=DUHD9V7SWAJRE1XPHI8Y3JS414TMRXDAK1').then(function(response) { ethblock = response.data.result }).catch(function(e){});
+ //alert(ethblock);
+  await axios.get('https://ethgasstation.info/json/ethgasAPI.json').then(function(response) {
+    ethblock = response.data.blockNum; timebl = response.data.block_time; vm.ala[2] = Math.round(response.data.safeLow/10);
+  }).catch(function(e){});
+ // alert(ethblock.toString(16))
   
-   var txns = response.data.result.transactions.length; 
-    vm.lastt[2] = moment((moment().unix() - parseInt(response.data.result.timestamp,16))*1000).utc().format('HH:mm:ss');
-    vm.txs[2] = Math.round(txns/(moment().unix() - parseInt(response.data.result.timestamp,16))*1e2)/1e2;
- let ts = moment().unix() - parseInt(response.data.result.timestamp,16); vm.block[2] = parseInt(ethblock,16);
- (ts < 150) ? vm.ala[2] = 'OK': (ts < 600) ? vm.ala[2] = 'DELAY' : vm.ala[2] = 'ALARM';
-  });
+  await axios.get('https://api.etherscan.io/api?module=proxy&action=eth_getBlockByNumber&tag=0x'+ethblock.toString(16)+'&boolean=true&apikey=DUHD9V7SWAJRE1XPHI8Y3JS414TMRXDAK1').then(function(response) {
+  
+   let txns = response.data.result.transactions.length; 
+   //let timeold = parseInt(response.data.result.timestamp,16);
+   //let timenew = moment().unix();
+   
+   // vm.lastt[2] = moment((timenew - timeold)*1000).utc().format('HH:mm:ss');
+    vm.lastt[2] = moment(timebl*1000).utc().format('HH:mm:ss');
+    vm.txs[2] = Math.round(txns/timebl*1e2)/1e2;
+ //let ts = timenew - timeold; 
+    vm.block[2] = ethblock;
+ 
+ //(ts < 150) ? vm.ala[2] = 'OK': (ts < 600) ? vm.ala[2] = 'DELAY' : vm.ala[2] = 'ALARM';
+  }).catch(function(e){});
 
 
   axios.get("https://887f07af.ngrok.io/rpc/explorer/info").then(function(response){
@@ -232,7 +243,7 @@ function demo() {
     dialog = document.querySelector('#intro');
     dialog.close();
      }catch(e) {}
-     vm.text = "0xac090c1d166f3f7d202ab128235ba46c8fcd3dbf, DEMO 1; 0x1de8b6a11731d096f76ad00783c7dae476239436, DEMO 2;"
+     vm.text = "0xac090c1d166f3f7d202ab128235ba46c8fcd3dbf, DEMO 1; 0x3Ee3CC34aDDFdf12417cE36072203017E48FD544, DEMO 2;"//0x1de8b6a11731d096f76ad00783c7dae476239436, DEMO 2;"
   addwal(1); 
   } 
 
@@ -245,12 +256,13 @@ function addwal(x) {
   pars();
 
   function pars() {
-    var chain = '';
+    var chain = '', addr;
     let inda = temp.search(/[^,.\s\;\:]|A/);
     if (inda == -1) { return };
     temp = temp.substr(inda);
     let indae = temp.search(/[,.\s\;\:]|$/);
-    let addr = temp.substr(0, indae).toLowerCase(); //get address
+    if (temp.substr(0, 2) == '0x') {addr = temp.substr(0, indae).toLowerCase()} else {addr = temp.substr(0, indae)} ; //get address
+    //addr = temp.substr(0, indae).toLowerCase();
     temp = temp.substr(indae);
     let indn = temp.search(/[^,.\s]/); 
     let indne = temp.search(/[\:\;]|$/); 
@@ -507,7 +519,7 @@ for (var u in symbolid) {
 async function prtok() { 
   if (!(vm.w.match(/!/))) vm.w = 'prices';
    axios.get("https://api.coingecko.com/api/v3/simple/price?ids=" + ids + "&vs_currencies=usd").then(function(response) { 
-    pricebyid = response.data; vm.status += 10; if (ontrig == 0) tabtokens() }).catch(function(e) { vm.w = '!prices\u26A0'; });
+    pricebyid = response.data; vm.status += 10; if (ontrig == 0) tabtokens(); }).catch(function(e) { vm.w = '!prices\u26A0';});
    
   await axios.get('https://api.switcheo.network/v2/tickers/last_price?bases=NEO,ETH').then(function(response) {
     neopr = response.data; vm.status += 10;  }).catch(function(e) {vm.w = '!pricesx\u26A0' });
@@ -796,13 +808,18 @@ async function tabtokens() {
        }catch(e){}; 
     // get value contr and bal and chest
        try {
+        eth_alltok.push('OPENc');
+        //alert(eth_alltok);
       for (var sym of eth_alltok) {
     
         var ochest1 = 0; ochest2 = 0, ousdch1 = 0, ousdch2 = 0, datch1 = '', datch2 = '', oprice = '', ocontr = '', obal = '', ousd = '', ousdc = 0, otot = 0;
         
         for (var tii of bal) {
           if (sym == 'ETH') {obal = eth_arrbal[ii].data.ETH.balance; break}
-          if (sym == tii.tokenInfo.symbol) { obal = tii.balance/10**(tii.tokenInfo.decimals); break}
+          if (sym == tii.tokenInfo.symbol) { 
+            if (sym == "OPENc" && tii.tokenInfo.address == '0x9d86b1b2554ec410eccffbf111a6994910111340') {}
+            obal = tii.balance/10**(tii.tokenInfo.decimals); break
+          }
         }
        
         for (var tjj in ball) {
@@ -822,7 +839,8 @@ async function tabtokens() {
     }catch(e) {oprice = ''}
     //check prices in address history
         if (oprice == '') {
-          for (var pri of eth_price) {//alert(eth_price);
+          for (var pri of eth_price) {
+            if (sym == pri.tokenInfo.symbol && pri.tokenInfo.address == '0xaf4884622fdc0dd436bd229852ae06be8713c4f6') {alert(sym); break}
             if (sym == pri.tokenInfo.symbol && pri.tokenInfo.price != false) {oprice = pri.tokenInfo.price.rate; break}
           }
         }
