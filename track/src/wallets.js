@@ -184,13 +184,13 @@ async function blockupd() {
  //(ts < 150) ? vm.ala[2] = 'OK': (ts < 600) ? vm.ala[2] = 'DELAY' : vm.ala[2] = 'ALARM';
   }).catch(function(e){});
 
-
+/*
   axios.get("https://887f07af.ngrok.io/rpc/explorer/info").then(function(response){
   open = response.data; vm.block[0] = open.payload.blocksCount; vm.ala[0] = open.payload.nodesCount; 
   vm.txs[0] = open.payload.transactionsPerSecond;
   vm.lastt[0] = moment(open.payload.blockProductionTime).utc().format('HH:mm:ss');
   }).catch(function(e){})
- 
+ */
 
 }
 
@@ -801,23 +801,23 @@ async function tabtokens() {
           };
         };
   
-        for (var tj in ball) {
+        for (var tj in ball) { 
         (eth_alltok.indexOf(tj) == -1) ? eth_alltok.push(tj) : {};
         }
 
        }catch(e){}; 
+
     // get value contr and bal and chest
        try {
         eth_alltok.push('OPENc');
-        //alert(eth_alltok);
-      for (var sym of eth_alltok) {
+        for (var sym of eth_alltok) {
     
         var ochest1 = 0; ochest2 = 0, ousdch1 = 0, ousdch2 = 0, datch1 = '', datch2 = '', oprice = '', ocontr = '', obal = '', ousd = '', ousdc = 0, otot = 0;
         
         for (var tii of bal) {
+          if (tii.tokenInfo.address == '0xaf4884622fdc0dd436bd229852ae06be8713c4f6') {tii.tokenInfo.symbol = 'OPENc'};// '0x9d86b1b2554ec410eccffbf111a6994910111340') {}
           if (sym == 'ETH') {obal = eth_arrbal[ii].data.ETH.balance; break}
           if (sym == tii.tokenInfo.symbol) { 
-            if (sym == "OPENc" && tii.tokenInfo.address == '0x9d86b1b2554ec410eccffbf111a6994910111340') {}
             obal = tii.balance/10**(tii.tokenInfo.decimals); break
           }
         }
@@ -840,7 +840,6 @@ async function tabtokens() {
     //check prices in address history
         if (oprice == '') {
           for (var pri of eth_price) {
-            if (sym == pri.tokenInfo.symbol && pri.tokenInfo.address == '0xaf4884622fdc0dd436bd229852ae06be8713c4f6') {alert(sym); break}
             if (sym == pri.tokenInfo.symbol && pri.tokenInfo.price != false) {oprice = pri.tokenInfo.price.rate; break}
           }
         }
@@ -1073,14 +1072,14 @@ if (vm.flag == 0 ){
     if (ii.amount == 0) continue;
     if (ii.side == ">>>>>>>>>>") {
       links.push({"source":jj.address, "target":ii.address});
-      col = "red"; sid = " Sent::"
+      col = "red"; sid = "SENT "; s = ' to '
     } else {
       links.push({"source":ii.address, "target":jj.address});
-      col = "green"; sid = " Received::"
+      col = "green"; sid = "RECEIVED "; s = ' from '
     } 
     if (nik.indexOf(ii.address) == -1) {
       nik.push(ii.address);
-      let info = ii.address + sid +Math.round(ii.amount*1e4)/1e4+ ' ' + ii.symbol;
+      let info = sid +Math.round(ii.amount*1e4)/1e4+ ' ' + ii.symbol + s + ii.address;
      
      nods.push({"id":ii.address, "info":info, "color":col});
     }
@@ -1121,8 +1120,8 @@ document.getElementById('dg').style.display = 'flex';
   const Graph = ForceGraph3D()
       (elem)
       .graphData(gData)
-      .width(990)
-      .height(400)
+      .width(989)
+      .height(500)
       .backgroundColor('#212A3F')
      .nodeLabel('info')
       .nodeResolution(16)

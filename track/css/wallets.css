@@ -1,4 +1,6 @@
-
+[v-cloak] {
+  display: none;
+}
 
 ::-webkit-scrollbar { /* chrome based */
   width: 0px;  /* ширина scrollbar'a */
@@ -119,14 +121,18 @@
   text-align: left;
  }
 
+
+ 
+
   tbody {
-  height: calc(100vh - 400px);
-  min-height: 200px;       /* Just for the demo          */
+  height: calc(100vh - 800px);
+  min-height: 400px;     
   overflow-y: auto ;    /* Trigger vertical scroll    */
   scrollbar-width: none;
   overflow-x: hidden;  /* Hide the horizontal scroll */
   background: rgba(33, 42, 63, 0.5);
 }
+
 tbody tr {
   background: rgba(0,0,0,0.3);
 }

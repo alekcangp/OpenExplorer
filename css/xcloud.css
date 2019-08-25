@@ -216,11 +216,11 @@
 
 .table {
 display: block;
-width: 1000px; 
+width: 900px; 
 border: 2px solid darkcyan;
 margin-top: 30px;
 text-align: center;
-margin-left: calc(100%/2 - 500px);
+margin-left: calc(100%/2 - 450px);
 border-spacing: 2px 1px;
 box-shadow: 0 0 6px rgba(255,255,255,0.7);
 }
@@ -268,7 +268,7 @@ box-shadow: 0 0 6px rgba(255,255,255,0.7);
 
 
   .tbody {
-  height: calc(100vh - 300px);       /* Just for the demo          */
+  height: calc(100vh - 270px);       /* Just for the demo          */
   overflow-y: auto ;    /* Trigger vertical scroll    */
   scrollbar-width: none;
   overflow-x: hidden;  /* Hide the horizontal scroll */
