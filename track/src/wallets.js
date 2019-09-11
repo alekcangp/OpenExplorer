@@ -162,14 +162,23 @@ async function blockupd() {
   });
 */
 //ethereum
- // await axios.get('https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=DUHD9V7SWAJRE1XPHI8Y3JS414TMRXDAK1').then(function(response) { ethblock = response.data.result }).catch(function(e){});
+ // await axios.get('https://api.etherscan.io/api?module=proxy&action=eth_blockNumber&apikey=*********************').then(function(response) { ethblock = response.data.result }).catch(function(e){});
  //alert(ethblock);
+
+
+  axios.get("https://root-h6qr.localhost.run/rpc/explorer/info").then(function(response){
+  open = response.data; vm.block[0] = open.payload.blocksCount; vm.ala[0] = open.payload.nodesCount; 
+  vm.txs[0] = open.payload.transactionsPerSecond;
+  vm.lastt[0] = moment(open.payload.blockProductionTime).utc().format('HH:mm:ss');
+  }).catch(function(e){})
+
+ 
   await axios.get('https://ethgasstation.info/json/ethgasAPI.json').then(function(response) {
     ethblock = response.data.blockNum; timebl = response.data.block_time; vm.ala[2] = Math.round(response.data.safeLow/10);
   }).catch(function(e){});
  // alert(ethblock.toString(16))
   
-  await axios.get('https://api.etherscan.io/api?module=proxy&action=eth_getBlockByNumber&tag=0x'+ethblock.toString(16)+'&boolean=true&apikey=DUHD9V7SWAJRE1XPHI8Y3JS414TMRXDAK1').then(function(response) {
+  await axios.get('https://api.etherscan.io/api?module=proxy&action=eth_getBlockByNumber&tag=0x'+ethblock.toString(16)+'&boolean=true&apikey=*************').then(function(response) {
   
    let txns = response.data.result.transactions.length; 
    //let timeold = parseInt(response.data.result.timestamp,16);
@@ -184,14 +193,8 @@ async function blockupd() {
  //(ts < 150) ? vm.ala[2] = 'OK': (ts < 600) ? vm.ala[2] = 'DELAY' : vm.ala[2] = 'ALARM';
   }).catch(function(e){});
 
-/*
-  axios.get("https://887f07af.ngrok.io/rpc/explorer/info").then(function(response){
-  open = response.data; vm.block[0] = open.payload.blocksCount; vm.ala[0] = open.payload.nodesCount; 
-  vm.txs[0] = open.payload.transactionsPerSecond;
-  vm.lastt[0] = moment(open.payload.blockProductionTime).utc().format('HH:mm:ss');
-  }).catch(function(e){})
- */
 
+ 
 }
 
 
@@ -386,12 +389,12 @@ async function apibalance() {
 
     //ethereum
     if (vm.namaddr[i].chain == 'ETH') {
-      eth_bourl = 'https://api.ethplorer.io/getAddressInfo/' + vm.namaddr[i].address + '?apiKey=vxgr4977bVmP23';
+      eth_bourl = 'https://api.ethplorer.io/getAddressInfo/' + vm.namaddr[i].address + '?apiKey=*********';
       eth_bourlx.push(eth_bourl);
-      eth_pr = 'https://api.ethplorer.io/getAddressHistory/' + vm.namaddr[i].address + '?apiKey=vxgr4977bVmP23&limit=100';
+      eth_pr = 'https://api.ethplorer.io/getAddressHistory/' + vm.namaddr[i].address + '?apiKey=********&limit=100';
       eth_prx.push(eth_pr);
       for (var item of http) {
-        eth_turl = "https://api.etherscan.io/api?module=account&action=" + item + "&address="+vm.namaddr[i].address+"&page=1&offset=50&sort=desc&apikey=DUHD9V7SWAJRE1XPHI8Y3JS414TMRXDAK1";
+        eth_turl = "https://api.etherscan.io/api?module=account&action=" + item + "&address="+vm.namaddr[i].address+"&page=1&offset=50&sort=desc&apikey=*************************";
         eth_turlx.push(eth_turl);
       }
     }

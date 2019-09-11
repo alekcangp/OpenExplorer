@@ -9,7 +9,6 @@
   
   <meta name="description" content="OPEN Explorer is a project for OPEN DApp Development Competition."/>
   <meta property="og:image" content="https://openexplorer.tech/img/share1.jpg" />
-  <meta http-equiv="Cache-Control" content="no-cache">
   <link rel = "stylesheet/less" type="text/css" href="./css/styles.less" />
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/vue/2.2.6/vue.min.js"></script>
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js" async></script>
@@ -17,19 +16,15 @@
   <script src = "https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0-beta.1/axios.js"></script>
   <script src = "https://code.jquery.com/jquery-1.7.1.min.js" type="text/javascript"></script>
   <script src = "./js/dialog.js" ></script>
- 
+  <script src = "./js/script.js"></script>
 
   
   <link href = "https://use.fontawesome.com/releases/v5.1.0/css/all.css" type="text/css" rel="stylesheet"/>
-  <link rel = "icon" type="image/gif" href="./img/favicon.png" size = "any" >
+  <link rel = "icon" type="image/gif" href="./img/favicon.png" sizes = "any" >
   <link href = "./css/xcloud.css" type="text/css" rel="stylesheet"/>
   <link href = "https://fonts.googleapis.com/css?family=Kelly+Slab|Marck+Script&display=swap" rel="stylesheet">
-  
-  <title>OPEN Explorer</title> 
-
-    <script src = "./js/script.js"></script>
-    <link href = "./css/style.css" type="text/css" rel="stylesheet"/>
-    <link href = "https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
+  <link href = "./css/style.css" type="text/css" rel="stylesheet"/>
+  <link href = "https://fonts.googleapis.com/css?family=Exo+2&display=swap" rel="stylesheet">
     <style>
       .sh{cursor:pointer; box-shadow:0 0 10px darkblue; border: 2px solid blue; border-radius: 5px; margin: 0 50px}
       .sh:hover{box-shadow:0 0 10px white;}
@@ -65,7 +60,7 @@
       })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
       
 </script>
-
+ <title>OPEN Explorer</title> 
 </head>
 <body>
 
@@ -75,6 +70,7 @@
   </script>
 
     <div id="fb-root"></div>
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v4.0&appId=778193619243863"></script>
     <canvas id="pixie"></canvas>
     <div style = "display:block; position:absolute; overflow: hidden; height: calc(100vh - 2px); width: calc(100vw - 2px); top:2; left:2; z-index: -99; opacity: 0.2;">
       <canvas id = "c"></canvas>
@@ -107,13 +103,14 @@
             <button class="tablinks" onclick="openCity(event, 'Moscow','monitor')" id = "monitor"><i class="fas fa-tachometer-alt"></i></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Monitor</button>
             <button class="tablinks" onclick="openCity(event, 'Omsk','wallet')" id = "wallet"><i class="fas fa-wallet"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Wallet</button>
             <button class="tablinks" onclick="openCity(event, 'Tomsk','invest')" id="invest"><i class="fas fa-donate"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Invest</button>
+            <button class="tablinks" onclick="openCity(event, 'Kazan','lottery')" id="lottery"><i class="fas fa-trophy"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lottery</button>
             <div style = "position:absolute; bottom:10px;"><a href = "https://openfuture.io" target = "_blank"><img class = "ele" src = "./img/logo2.png"/></a></div>
             </div>
 </nav>
 
 <!-- OPEN SPACE -->
       <div id="London" class="tabcontent">
-        <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+        <div class = "title" >
         <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; S P A C E</span>
         </div>
         <div style = "font-size: 25px; margin:0 0 25px 0">
@@ -235,7 +232,7 @@
 
 <!-- OPEN GAMES -->
       <div id="Paris" class="tabcontent">
-          <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+          <div class = "title">
             <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; G A M E S</span>
             </div>
             <div style = "font-size: 25px; margin:0 0 25px 0">
@@ -243,7 +240,7 @@
             </div>
 
 
-            <div style = "width:100%; height:calc(100vh - 220px); text-align: center; padding: 80px 0 0 0">
+            <div style = "width:100%; height:450px; text-align: center; padding: 80px 0 0 0">
             <img  src = "./img/game1.jpg" onclick = "opengame('game1')" class = "sh"/>
             
             <img  src = "./img/game2.jpg" onclick = "opengame('game2')" class = "sh"/>
@@ -252,14 +249,15 @@
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(only for descktop)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>      
             </div>
- 
-           
-           
+			<div >
+			<h2 style = "color:#0292FA">Create your own games and publish them on OPEN Space</h2>
+			</div>      
                
-           
       </div>
+
+
       <div id="Tokyo" class="tabcontent">
-          <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+          <div class = "title" >
             <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; B O T</span>
             </div>
             <div style = "font-size: 25px; margin:0 0 20px 0">
@@ -274,7 +272,11 @@
         </div>
         <div style = "font-size: 20px; margin:10px 0 20px 0;">
          What can this bot do?<br>
-         Shows OPEN token info.<br>Tracks the wallets balance.<br>Monitors the volume (24h) of OPEN token.
+         Shows OPEN token info and count of the open-chain nodes.<br>
+         Tracks the wallets. Notifies about low and high network fees.<br>
+         Monitors the volume (24h) of OPEN token.<br>
+         
+
         </div>
 
          <div>
@@ -283,11 +285,12 @@
             
       </div>
 
+
       <div id="Moscow" class="tabcontent">
-          <div class = "title" style = 'width: 100%; height: 50px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+          <div class = "title" >
             <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; M O N I T O R</span>
             </div>
-            <div style = "margin:10px 0 5px 0; width:500px;text-align: left; margin-left:calc(50% - 205px)">
+            <div style = "margin:0px 0 10px 0; width:500px; text-align: left; margin-left:calc(50% - 205px)">
               OPEN Token: ${{prusd}} convert to 
             <select v-model.trim="convert" style = "background: transparent; color:white">
               <option style = "background: rgba(0, 0, 139, 0.687);color: white" v-for="(c,p) in rat" v-bind:value="p">{{p}}</option>
@@ -299,27 +302,30 @@
 
 
       <div id="Omsk" class="tabcontent">
-          <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+          <div class = "title" >
             <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; W A L L E T</span><br>
             </div>
            <div style = "color:orange; margin:-10px 0 10px 0">OPEN Mainet Network is now under development. Do not transfer any asset to this wallet!</div>
            <div id = "ref" style = "position:absolute; left:calc(100% / 2 - 140px); top:50%;">
               <img src = "./img/ref.png"/>
            </div>
-            <iframe src="https://c23ba4e2.ngrok.io" width="100%" style = "height:calc(100vh - 105px); overflow: scroll; overflow: hidden;" frameborder="0" allowfullscreen></iframe>
-      </div>
+         
+            <iframe src="https://root-h6qr.localhost.run" width="100%" style = "height:calc(100vh - 105px); min-height: 650px "  scrolling="auto" frameborder="0" allowfullscreen></iframe>
+      
+        </div>
+
 
 <div id="Tomsk" class="tabcontent">
-            <div class = "title" style = 'width: 100%; height: 70px; text-align: center; padding: 5px 0 0 0; font-size: 40px'>
+            <div class = "title" >
               <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; I N V E S T</span>
             </div>
 
 
-            <div style = "font-size: 25px; margin:0 0 35px 0">
-              <span>Invest in OPEN Explorer via DApp and get dividends</span>
+            <div  style = "font-size: 25px; margin:0 0 35px 0" >
+              <span>The Investor Challenge - Be the best investor and get dividends!</span>
             </div>
             
-          <div style = " margin-left:calc(50% - 450px);width:365px;">
+          <div style = " margin-left:calc(50% - 450px); width:373px;" >
               <div class = "box" style = "padding:10px; font-size: 24px; text-align:left; margin-bottom:20px">
                 <img style = "display:inline-block" src = "./img/chest.png"/>
                 PRIZE POOL ETH: <b class = "point" style = "color:gold" v-on:click = "function() { window.open('https://etherscan.io/address/'+pool, '_blank') }">{{ether}}</b><br>
@@ -328,9 +334,9 @@
                 <span style = "font-size:19px"v-else>Awaiting result</span>
               </div>
 
-            <div class = "box" style = " background:rgba(255,255,255,0.3); overflow: hidden; width:360px; height:465px;">
-              <div id = 'meta' style = "position:relative; top:5px; color:red; font-size:13px">&nbsp</div> 
-              <iframe style = "margin-top:10px" id="open" src="https://api.openfuture.io/widget/0x45EFCF2613Fdc5529a0B5FEe769E2EC64bA8dd72" width="320" height="430" scrolling="no" frameborder="0" allowfullscreen></iframe>
+            <div class = "box" style = "position:relative; background:rgba(255,255,255,0.3); overflow: hidden; width:370px; height:465px;" >
+              <div id = 'meta' style = "margin-top:5px; font-size:13px">&nbsp</div> 
+              <iframe  style = "margin-top:10px" id = "open" src="https://api.openfuture.io/widget/0x45EFCF2613Fdc5529a0B5FEe769E2EC64bA8dd72" width="350" height="430" scrolling="no" frameborder="0" allowfullscreen></iframe>
             </div>  
           </div>
           
@@ -361,13 +367,15 @@
           
              
           <div class = 'tbody contur' style = "height:665px">
-            <div v-for = "t in board" v-on:click = "function() { window.open('https://etherscan.io/tx/'+t.hash, '_blank') }"  v-bind:class="[ t.hash != '' ? 'point' : {}]">
+            <div v-for = "t in board" v-on:click = "function() { window.open('https://etherscan.io/tx/'+t.hash, '_blank') }"  
+            v-bind:class="[ t.hash != '' ? 'point' : '', t.from != '' && t.from == accx ? 'userx' : '' ]">
       
               <div>
                   <div class = 'cell over' style = "width: 25px;"  v-bind:class="[ t.num == 1 ? 'gold' : t.num > 3 ? 'bronze' : 'silver']">
                     {{t.num}}
                   </div>
-                  <div  class = 'cell over' style = "max-width: 123px; min-width: 123px; text-align: left; white-space: pre-wrap;" v-html = "t.name" v-bind:class="[ t.num == 1 ? 'gold' : t.num > 3 ? 'bronze' : 'silver']">
+                  <div  class = 'cell over' style = "max-width: 123px; min-width: 123px; text-align: left;  text-overflow:ellipsis" v-html = "t.name" 
+                  v-bind:class="[ t.num == 1 ? 'gold' : t.num > 3 ? 'bronze' : 'silver']">
                    
                   </div>
                   <div  class = 'cell over' style = "max-width: 98px; min-width: 98px;"  v-bind:class="[ t.num == 1 ? 'gold' : t.num > 3 ? 'bronze' : 'silver']">
@@ -408,7 +416,7 @@
                 <b style = "background:Goldenrod;"> BRONZE Zone</b> - 1 lottery winner get 10% of TPP.
               </div>
               
-              Lottery winner is the one who has the highest hash of the payment transaction.<br>In case multiple payments, only the last hash is valid.
+              Lottery winner is the one who has the largest hash of the payment transaction.<br>In case multiple payments, only the last hash is valid.
               <br>
               Telegram username and email are required to contact and confirm payout address.
               <br>
@@ -419,8 +427,152 @@
               </div>
          </div> 
        </div> 
+
+
+
+     
+
+       <div id="Kazan" class="tabcontent">
+        <div class = "title" >
+          <span>O P E N &nbsp;&nbsp;&nbsp;&nbsp; L O T T E R Y</span>
+        </div>
+
+
+        <div style = "font-size: 25px; margin:0 0 35px 0">
+          <span>Absolutely fair decentralized lottery</span>
+        </div>
         
-</div> 
+      <div style = " margin-left:calc(50% - 450px);width:373px;">
+          <div class = "box" style = "padding:20px; font-size: 24px; text-align:center; margin-bottom:20px">
+            <img style = "display:inline-block" src = ""/>
+            NEXT DRAWING<br><span style = "color:gold">{{nextdr}}</span><br><br>
+            COUNTDOWN TO DRAWING<br><span style = "color:gold">{{timerdr}}</span><br><br>
+            ESTIMATED JACKPOT<br>
+            <b class = "point" style = "color:gold" v-on:click = "function() { window.open('https://etherscan.io/address/'+loto, '_blank') }">{{pot}} ETH</b><br>
+          </div>
+
+        <div  class = "box" style = " background:rgba(255,255,255,0.3); overflow: hidden; width:370px; height:300px;">
+          <div id = 'meta2' style = "margin-top:5px; font-size:13px">&nbsp</div> 
+          <iframe  style = "margin-top:10px" id="open2" src="https://api.openfuture.io/widget/0x395f8336289Efe5d69623cfcC863516F6140229F" width="350" height="260" scrolling="no" frameborder="0" allowfullscreen></iframe>
+        </div>  
+      </div>
+      
+
+      <div class = 'table box' style = "margin-left:calc(50% - 60px); margin-top:-592px; overflow: hidden; width:510px; height:590px">
+  
+       
+          <div class = 'rowh'>
+           
+              <div class = 'cell2' style = "max-width: 25px; min-width:25px;" >
+                #
+              </div>
+              <div class = 'cell2' style = "max-width: 100px; min-width: 100px;">
+               NAME
+              </div>
+              <div class = 'cell2' style = "width: 235px;">
+               HASH
+              </div>
+              <div class = 'cell2' style = "max-width: 100px; min-width: 100px;">
+              PAYED
+              </div>
+              
+          </div>
+      
+         
+      <div class = 'tbody contur' style = "height:550px">
+        <div v-for = "t in boardlot" v-on:click = "function() { window.open('https://etherscan.io/tx/'+t.hash, '_blank') }"  
+        v-bind:class="[ t.hash != '' ? 'point' : '', t.from != '' && t.from == accx ? 'userx' : '']">
+  
+          <div>
+              <div class = 'cell over' style = "max-width: 25px; min-width:25px;"  v-bind:class="[ t.num == 1 ? 'gold' : 'silver']">
+                {{t.num}}
+              </div>
+              <div  class = 'cell over' style = "max-width: 100px; min-width: 100px; text-align: left; text-overflow:ellipsis" v-html = "t.name" 
+              v-bind:class="[ t.num == 1 ? 'gold' : 'silver', t.from == accx ? 'userx' : '']">
+               
+              </div>
+              <div  class = 'cell over' style = "max-width: 233px; min-width: 233px; text-overflow:ellipsis"  v-bind:class="[ t.num == 1 ? 'gold' : 'silver']">
+                 {{t.hash}}
+              </div>
+              
+              <div class = 'cell over' style = "max-width: 100px; min-width: 100px; "  v-bind:class="[ t.num == 1 ? 'gold' : 'silver']">
+                {{t.payed}} 
+              </div>
+
+          </div>
+  
+        </div>
+      </div> 
+     </div>
+     <br>
+     <span style = "font-size: 25px">WINNERS HISTORY</span>
+     <div class = 'table box' style = "margin-left:calc(50% - 450px); margin-top:10px; overflow: hidden; width:900px; height:200px">
+  
+      <div class = 'rowh'>
+          <div class = 'cell2' style = "max-width: 100px; min-width:100px;" >
+          DRAWING
+          </div>
+          <div class = 'cell2' style = "max-width: 100px; min-width: 100px;">
+           NAME
+          </div>
+          <div class = 'cell2' style = "width: 210px;">
+           ADDRESS
+          </div>
+          <div class = 'cell2' style = "width: 225px;">
+            HASH
+           </div>
+           <div class = 'cell2' style = "max-width: 100px; min-width: 100px;">
+            JACKPOT
+           </div>
+          <div class = 'cell2' style = "max-width: 100px; min-width: 100px;">
+           PAYOUT
+          </div>
+          
+      </div>
+  
+     
+  <div class = 'tbody contur' style = "height:665px">
+    <div v-for = "t in boardwin" v-on:click = "function() { window.open('https://etherscan.io/tx/'+t.hash, '_blank') }"  
+    v-bind:class="[ t.hash != '' ? 'point' : '', t.from != '' && t.from == accx ? 'userx' : '']">
+
+      <div>
+          <div class = 'cell over bronze' style = "max-width: 100px; min-width:100px;">
+            {{t.draw}}
+          </div>
+          <div  class = 'cell over bronze' style = "max-width: 100px; min-width: 100px; text-align: left; text-overflow:ellipsis" v-html = "t.name" >
+           
+          </div>
+          <div  class = 'cell over bronze' style = "max-width: 204px; min-width: 204px; text-overflow:ellipsis" >
+             {{t.address}}
+          </div>
+          <div  class = 'cell over bronze' style = "max-width: 220px; min-width: 220px; text-overflow:ellipsis" >
+            {{t.hash}}
+         </div>
+         <div class = 'cell over bronze' style = "max-width: 100px; min-width: 100px; " >
+          {{t.pot}} 
+        </div>
+          <div class = 'cell over bronze' style = "max-width: 100px; min-width: 100px; " v-on:click = "function() { window.open('https://etherscan.io/tx/'+t.hashpay, '_blank') }">
+            {{t.payout}} 
+          </div>
+
+      </div>
+
+    </div>
+  </div> 
+ </div>
+
+
+      <div class = "contur" style = "width:890px; height: 200px; margin-left:calc(50% - 440px); margin-top:25px; text-align:center; font-size:16px">
+          
+           <b><u>LOTTERY RULES</u></b><br>
+           <br>
+           The lottery draws take place every 7 days (each 7 day cycle is a “draw period”).<br>
+           The estimated jackpot is amount of all payments during the draw period, minus 10%.<br>
+           Winner is one who has the largest hash of the payment transaction at the end of the draw period.
+     </div> 
+  </div>
+        
+</div>
 
 <script src = "./js/xcloud.js"></script>
 
@@ -432,7 +584,7 @@
 
 
       function openCity(evt, cityName, p) {
-       if (moment().unix() < 1569023999 && cityName != 'Tomsk') {//  && cityName != 'Tokyo' ) {// && cityName != 'Omsk' ) {//&& cityName != 'London' ) {//&& cityName != 'Moscow') {
+       if (moment().unix() < 1569023999 && cityName != 'Tomsk') {// && cityName != 'London' ) {// && cityName != 'Omsk' ) {//&& cityName != 'London' ) {//&& cityName != 'Moscow') {
           alert('This tab will be unlocked at 23:59:59 GMT, on September 20, 2019'); document.getElementById('invest').click(); 
          return };
         var i, tabcontent, tablinks;
@@ -485,13 +637,14 @@
                   
                   };
           
-                  (function(d, s, id){
+                 /* (function(d, s, id){
                      var js, fjs = d.getElementsByTagName(s)[0];
                      if (d.getElementById(id)) {return;}
                      js = d.createElement(s); js.id = id;
                      js.src = "https://connect.facebook.net/en_US/sdk.js";
                      fjs.parentNode.insertBefore(js, fjs);
                    }(document, 'script', 'facebook-jssdk'));
+                   */
         </script>
 
         

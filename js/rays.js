@@ -145,13 +145,15 @@ window.addEventListener( 'resize', function(){
 	
 	w = c.width = window.innerWidth;
 	h = c.height = window.innerHeight;
-	
+	$('.main-menu').css({ height: h });
 	opts.maxRadius = Math.sqrt( w*w + h*h );
 	opts.cx = 30;
 	opts.cy = h - 30;
 	
 	init();
 });
+
+
 c.addEventListener( 'click', function(e){
 	
 	opts.cx = e.clientX;

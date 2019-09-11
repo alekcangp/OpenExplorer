@@ -21,6 +21,14 @@ var vm = new Vue({
       prusd:'. . . . . . . . .',
       rat:{},
       convert:'EUR',
+      //lottery
+      nextdr: '',
+      timerdr: ' ',
+      pot: '',
+      loto: '0x837a63E5eF3D96F4A8c06006BCab2246a475C15a',
+      boardlot:[],
+      boardwin:[],
+      accx: '',
 
     },
 
@@ -53,7 +61,7 @@ var vm = new Vue({
 });
 
 //open price
-axios.get('https://openexchangerates.org/api/latest.json?app_id=d34199d67d85445a846040c0cf621510').then(function(response){
+axios.get('https://openexchangerates.org/api/latest.json?app_id=*************************').then(function(response){
   vm.rat = response.data.rates
 })
 priceopen();
@@ -63,15 +71,149 @@ axios.get("https://api.coingecko.com/api/v3/simple/price?ids=open-platform&vs_cu
 });
 }
 
+function ethacc(x) {
+  vm.accx = x
+}
+
+var currentTime;
+
+//LOTTERY
+
+var startDraw = 1569024000;//1568095541;// ;//1566219357;//
+var pr = 604800;
+var nextdr, durationdr, drawings;
+
+upddr(); 
+function upddr() {
+currentTime = moment().unix();// - 3600*24*15 + 3600*23 - 60*5;// for invest and lottery
+nextdr = startDraw + pr;
+drawings = [nextdr];
+while (currentTime >= nextdr) {
+  nextdr += pr;
+  drawings.push(nextdr); 
+}
+
+vm.nextdr = moment(nextdr*1000).format('lll');
+durationdr = moment.duration(nextdr - currentTime, 'seconds');
+lotos(nextdr); setTimeout(winhis, 100);
+
+}
+
+
+setInterval(function() {
+ // Time Out check
+ if (durationdr.asSeconds() == 0) {
+   vm.timerdr = 'Drawing conducted'
+  vm.boardlot = []; upddr();
+} else {
+  durationdr = moment.duration(durationdr.asSeconds() - 1, 'seconds');
+  
+  vm.timerdr = Math.floor(durationdr.asDays()) + 'd:' + durationdr.hours()+ 'h:' + durationdr.minutes()+ 'm:' + durationdr.seconds() + 's';
+}}, 1000);
+
+
+
+var contractlot = '0x395f8336289efe5d69623cfcc863516f6140229f';
+var apieth = '*****************************';
+var temppot = '';
+var boardlot = [];
+
+
+//jackpot balance
+ async function jackpot(draw) {
+  await axios.get('https://api.etherscan.io/api?module=account&action=txlistinternal&address=' + vm.loto + '&sort=asc&apikey='+apieth).then(function(response){
+    var txns = response.data.result;
+    var sum = 0;
+    txns.forEach(function(item,i) { if ( item.from == contractlot && item.timeStamp <= draw && item.timeStamp > draw - pr) sum += Number(item.value) });
+   temppot = Math.round(sum*1e-12)/1e6;
+  }).catch(function(e){});
+}
+
+//leaderboard
+async function leader(draw) {
+
+await axios.get("https://api.ethplorer.io/getAddressInfo/"+contractlot+"?apiKey="+apik).then(function(response){
+  countx = response.data.countTxs;
+}).catch(function(e){});
+//all txns
+await axios.get('https://api.ethplorer.io/getAddressTransactions/'+contractlot+'?apiKey='+apik+'&limit='+countx).then(function(response){
+var txns = response.data; 
+
+var temp = [], txns1 = [], txns3 = [], len = 15;
+boardlot = [];
+
+for (var t of txns) {
+ 
+  if (temp.indexOf(t.from) != -1 || t.success != true || t.input.substr(0,10) != '0x6192e129' || t.value != 0.0111476506 || t.timestamp <= draw-pr || t.timestamp > draw) continue
+  temp.push(t.from);
+  var sum = 0; 
+  txns.forEach(function(item,i){if (item.from == t.from) sum += item.value});
+  txns1.push({"timestamp":t.timestamp,"from":t.from,"hash":t.hash,"value":sum, "name":hex2a(t.input.substr(10,64)) });
+}
+  txns3 = txns1.sort(function (a, b) { return b.hash - a.hash });
+ 
+
+  if (txns3.length > len) len = txns3.length;
+  for (var i = 0; i < len; ++i){
+     if (i < txns3.length) {
+      boardlot.push({'time':txns3[i].timestamp,'num':i+1,'name':txns3[i].name, 'payed':Math.round(txns3[i].value*1e6)/1e6,'from':txns3[i].from,'hash':txns3[i].hash });
+        } else {
+          boardlot.push({'time':'','num':i+1,'name':'','payed':'','from':'','hash':''}); 
+        }   
+    }  
+  }).catch(function(e){});
+}
+
+
+
+async function lotos(dr) {
+//jackpot balance
+await jackpot(dr);
+vm.pot = temppot;
+//leaderboard
+await leader(dr);
+vm.boardlot = boardlot;
+setTimeout(function() {lotos(nextdr)}, 30000);
+}
+
+async function winhis() {
+  
+  var boardwin = [],  mem = [];
+  for (var i = drawings.length-2; i>=0; --i) {
+      var  thash = '', pot = '', blot = [], pay = 'processing...';
+      await jackpot(drawings[i]);
+      pot = temppot;
+      if (pot == 0) continue;
+      await leader(drawings[i]);
+      blot = boardlot[0];
+      //find payout
+      await axios.get('https://api.ethplorer.io/getAddressTransactions/'+vm.loto+'?apiKey='+apik+'&limit='+drawings.length).then(function(response){
+      var txns = response.data;
+      for (t of txns) {
+        if (t.to == blot.from && mem.indexOf(t.hash) == -1) {pay = Math.round(t.value*1e6)/1e6; thash = t.hash; mem.push(t.hash); break}
+      }
+    }).catch(function(e){});
+      boardwin.push({'draw':moment(drawings[i]*1000).format('ll'), 'name':blot.name, 'address':blot.from, 'hash':blot.hash, 'hashpay':thash, 'pot':pot, 'payout':pay});    
+  }
+
+  var len = 5-boardwin.length;
+  for (var i = 0; i < len; ++i) {
+    boardwin.push({'draw':'', 'name':'', 'address':'', 'hash':'', 'hashpay':'', 'pot':'', 'payout':''});
+  }
+  vm.boardwin = boardwin;
+ 
+}
+
+
 
 //INVEST
   //timer
     var eventTime = 1569455999;//1569455999;//25.09.2019
-    var currentTime = moment().unix();
+    
     var leftTime = eventTime - currentTime;
     var duration = moment.duration(leftTime, 'seconds');
-    var interval = 1000;
-    setInterval(function(){
+
+    setInterval(function intervalId() {
      // Time Out check
      if (duration.asSeconds() <= 0) {
         vm.timer = 'Competition ended.'
@@ -80,13 +222,12 @@ axios.get("https://api.coingecko.com/api/v3/simple/price?ids=open-platform&vs_cu
       //Otherwise
       duration = moment.duration(duration.asSeconds() - 1, 'seconds');
       vm.timer = Math.floor(duration.asDays()) + 'd:' + duration.hours()+ 'h:' + duration.minutes()+ 'm:' + duration.seconds() + 's';
-    }, interval);
+    }, 1000);
 
 //leaderboard and balance
 
-
-var contract = '0x45EFCF2613Fdc5529a0B5FEe769E2EC64bA8dd72';
-var apik = 'vxgr4977bVmP23'; 
+var contract = '0x45efcf2613fdc5529a0b5fee769e2ec64ba8dd72';
+var apik = '**************'; 
 var countx = 300;
 
 pools(); 
@@ -107,8 +248,6 @@ setInterval(pools, 30000);
   }).catch(function(e){});
 
  
-
-
   await axios.get("https://api.ethplorer.io/getAddressInfo/"+contract+"?apiKey="+apik).then(function(response){
     countx = response.data.countTxs;
   }).catch(function(e){});
@@ -119,7 +258,7 @@ var txns = response.data;
 var temp = [], txns1 = [], txns2 = [], txns3 = []; board = [], len = 20;
 
 for (var t of txns) {
-  if (temp.indexOf(t.from) != -1 || t.success != true || t.to == contract || t.input.substr(0,10) != '0x4583b4cd' || t.value != 0.0046377887000000001 || t.timestamp > eventTime ) continue
+  if (temp.indexOf(t.from) != -1 || t.success != true || t.input.substr(0,10) != '0x4583b4cd' || t.value != 0.0046377887000000001 || t.timestamp > eventTime ) continue
   temp.push(t.from);
   var sum = 0; 
   txns.forEach(function(item,i){if (item.from == t.from) sum += item.value});
@@ -152,7 +291,7 @@ try {
    
     vm.board = board;
 
-}).catch(function(e){});;
+}).catch(function(e){});
 
 }
 
@@ -299,8 +438,8 @@ function dbread(y) {
 
           formz.push(parse);
           formxid[parse.id] = parse;
-          vm.likex[parse.id] = '<div id = "like" class="fb-like" data-href="https://openexplorer.tech?project=" + parse.id + " data-width="" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>'
-
+          vm.likex[parse.id] = '<div id = "like" class="fb-like"  data-href="https://openexplorer.tech?project=' + parse.id + '" data-width="" data-layout="box_count" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>'
+          
         }; 
 
         if (vm.project != '') {

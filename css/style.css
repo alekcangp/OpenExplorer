@@ -1,4 +1,7 @@
 
+.userx {
+	color:green;
+}
 .point:hover {
 	text-shadow:2px 2px black;
 	cursor:pointer;
@@ -35,7 +38,7 @@ box-shadow:0 0 10px darkblue;
 
 #pixie{position:fixed;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     z-index: -1;
     opacity: 0.5;
     background:url(../img/bg.jpg) no-repeat center center fixed;
@@ -51,8 +54,8 @@ box-shadow:0 0 10px darkblue;
 
 
 body {
-	width: 100wh;
-	height: 90vh;
+	width: 100%;
+	height: 100vh;
     color: #fff;
 	background: linear-gradient(-45deg, rgb(116, 82, 238), rgb(176, 110, 250), rgb(71, 83, 248), rgb(113, 4, 177));
 	background-size: 400% 400%;
@@ -102,7 +105,7 @@ body {
 
 
 .main-menu:hover,nav.main-menu.expanded{width:200px;overflow:visible; background:rgba(0, 0, 139, 0.5);}
-.main-menu{background:rgba(0, 0, 139, 0.3); min-height:500px; border-right:1px solid #e5e5e5;position:absolute;top:0;bottom:0; height:100vh; left:0;width:60px;overflow:hidden;-webkit-transition:width .05s linear;transition:width .05s linear; -webkit-transform:translateZ(0) scale(1,1);z-index:1000}
+.main-menu{background:rgba(0, 0, 139, 0.3); min-height:550px; border-right:1px solid #e5e5e5;position:absolute;top:0;bottom:0; height:100vh; left:0;width:60px;overflow:hidden;-webkit-transition:width .05s linear;transition:width .05s linear; -webkit-transform:translateZ(0) scale(1,1);z-index:1000}
 .no-touch .scrollable.hover{overflow-y:hidden}
 .no-touch .scrollable.hover:hover{overflow-y:auto;overflow:visible}
 nav{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-select:none;user-select:none}
@@ -156,7 +159,7 @@ nav{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-
 	height: calc(100vh - 5px);       /* Just for the demo          */
 	overflow-y: auto ;    /* Trigger vertical scroll    */
 	scrollbar-width: none;
-	overflow-x: hidden; 
+	overflow-x: auto; 
 	text-align: center;
   }
 
@@ -171,7 +174,12 @@ nav{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;-o-user-
   }
   .title{ 
 	animation: anim 1s 1 alternate, neon .9s ease-in-out infinite alternate;
-	
+	white-space:nowrap;
+	width: 100%; 
+	height: 70px; 
+	text-align: center; 
+	padding: 5px 0 0 0; 
+	font-size: 40px;
   }
   
 	 
