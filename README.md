@@ -3,7 +3,7 @@
  <p align="center">>> <a target='_blank' href = "https://t.me/opendevelopments/">Announcements Channel</a> <<</p>
  <p align="center"><img src="https://img.shields.io/badge/STATUS-ONLINE-gsuccess"/></p>
 
-Meet up the OPEN Explorer!
+Meet up the **OPEN Explorer**!
 
 Features:
 * Space - Portal to publish any awesome OPEN applications.
@@ -14,7 +14,7 @@ Features:
 * The Investor Challenge - Be the best investor! Specially for the project's fans. The decentralized application utilises OPEN scaffold and smart contract.
 * Lottery - The DApp game built by OPEN scaffold and OPEN widget and using a blockchain mechanism to determine the winners.
 
-<p align="center">V V V V  Screenshorts Zone  V V V V</p>
+<p align="center">v v  Screenshorts Zone  v v</p>
 
 ![ScreenShort](https://raw.githubusercontent.com/alekcangp/OpenExplorer/master/img/first.jpg)
 ![ScreenShort](https://raw.githubusercontent.com/alekcangp/OpenExplorer/master/img/openspace.jpg)
