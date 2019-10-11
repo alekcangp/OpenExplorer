@@ -10,7 +10,7 @@ Features:
 * Games - Power OPEN's branding with a few simple games.
 * Bot - The telegram bot is able to show OPEN token info, count of the OPEN chain nodes and monitor user's wallets.
 * Monitor - Possibly it's the first wallets explorer is able to show network info, tokens, transactions and balances for multiple wallets in real time and display transactions on interactive 3D graph.
-* Wallet - the native OPEN Platform wallet is able to interact with OPEN chain, without the need to install any apps.
+* Wallet - the native OPEN Platform wallet is able to interact with OPEN chain, without the need to install any apps (this feature will be available after fix open-chain issue by OPEN Team).
 * The Investor Challenge - Be the best investor! Specially for the project's fans. The decentralized application utilises OPEN scaffold and smart contract.
 * Lottery - The DApp game built by OPEN scaffold and OPEN widget and using a blockchain mechanism to determine the winners.
 
